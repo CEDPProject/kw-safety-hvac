@@ -1,0 +1,247 @@
+@charset "utf-8";
+/* CSS Document */
+.body_wrap {
+  float: left;
+  width: 100%;
+  height: 100%;
+  background: #141619;
+  color: #fff;
+}
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #0c0c0c;
+  width: 100%;
+  height: 40px;
+  background: #1b1e23;
+}
+header h1 {
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+header h1 a {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.ctrl-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.div_cont {
+  float: left;
+  padding-bottom: 5px;
+  width: 100%;
+}
+.div_cont .cont_L01 {
+  position: relative;
+  float: left;
+  border: 1px solid #0c0c0c;
+  width: 60%;
+  box-sizing: border-box;
+}
+/*map*/
+.map_area {
+  position: relative;
+  float: left;
+  width: 100%;
+  background: #1b1e23;
+}
+.map_area .map_box {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid #0c0c0c;
+  background: #292d32;
+  width: 136px;
+  height: 55px;
+}
+.map_area .map_box ul li {
+  text-align: center;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: bold;
+}
+.map_area .map_box ul li:nth-child(2) {
+  color: #0b76e4;
+}
+.div_cont .cont_R01 {
+  float: left;
+  padding-left: 5px;
+  width: 40%;
+  box-sizing: border-box;
+}
+.div_cont .cont_R01 .div_section {
+  position: relative;
+  border: 1px solid #0c0c0c;
+  background: #1b1e23;
+  clear: both;
+}
+.div_cont .cont_R01 .div_section:last-child {
+  margin-bottom: 0px;
+}
+.div_cont .cont_R01 .time {
+  display: inline-block;
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  font-size: 13px;
+}
+.div_wrap .title {
+  margin-top: 3px;
+  /* margin-bottom: 18px; */
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  line-height: 20px;
+}
+.div_wrap .title span {
+  font-weight: bold;
+}
+.div_padding {
+  padding: 0 10px 10px 10px;
+  height: calc(100% - 34px);
+  box-sizing: border-box;
+}
+/*table*/
+.t_style thead th {
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  border-bottom: 1px solid #292d32;
+  border-right: 1px solid #292d32;
+  background: #111217;
+  font-size: 12px;
+}
+.t_style td {
+  padding: 10px;
+  border-right: 1px solid #292d32;
+  border-top: 1px solid #292d32;
+  background: #1b1e23;
+  text-align: center;
+  font-size: 12px;
+}
+.t_style thead .bg {
+  position: sticky;
+  top: 28px;
+  border-bottom: 1px solid #292d32;
+  background: #17191e;
+}
+
+.data_select {
+  display: flex;
+  margin: 0px 0 10px 0px;
+}
+.data_select select {
+  border: 1px solid #27292e;
+  border-radius: 5px;
+  height: 29px;
+  background: #111217;
+  color: #6f747a;
+}
+/*input type*/
+.date_input {
+  position: relative;
+  display: flex;
+  margin: 0 0px 0 10px;
+}
+.date_input input {
+  border: 1px solid #27292e;
+  border-radius: 5px;
+  background: #111217;
+  height: 25px;
+}
+.date_input a {
+  position: absolute;
+  top: 5.5px;
+  right: 0px;
+  display: inline-block;
+  width: 27px;
+  height: 17px;
+  background: url("../images/icon_calender.png") no-repeat 0 0;
+  text-indent: -999999px;
+}
+
+.btn {
+  display: flex;
+  padding: 0px 10px;
+  background: #0f2944;
+  border: 1px solid #0b76e4;
+  border-radius: 5px;
+  color: #0b76e4;
+  font-weight: bold;
+  font-size: 13px;
+  height: 25px;
+}
+.btn span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  display: flex;
+  padding: 10px 0 10px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  background: #1b1e23;
+}
+.date_select {
+  float: right;
+  margin-right: 5px;
+  margin-top: 5.5px;
+}
+.date_select select {
+  border: 1px solid #181818;
+  height: 29px; /*0421 css 수정*/
+  width: 85px;
+  background: #111217;
+}
+
+.cont_R01 .box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111217;
+  font-weight: bold;
+  font-size: 20px;
+  height: 53px;
+  width: 100%;
+}
+.location {
+  display: flex;
+  font-size: 12px;
+  font-weight: bold;
+  width: 100%;
+}
+.location span {
+  display: flex;
+  align-items: center;
+  padding-left: 28px;
+  height: 22px;
+  background: url("../images/icon_location.png") no-repeat 0 0;
+}
+.cont_R01 .box span {
+  margin-left: 10px;
+  color: #0b76e4;
+  font-size: 24px;
+  letter-spacing: -1px;
+}

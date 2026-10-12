@@ -1,0 +1,593 @@
+/* =====================================================
+   FHD (1920×1080) 기준 — 안정공조시스템 명령어 전송
+   라이트 테마 (기존 모니터링 페이지 스타일 계승)
+   ===================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 1920px;
+  overflow: hidden;
+  background: #edf2f9;
+  color: #333;
+  font-family: "NanumSquare", "맑은 고딕", "Malgun Gothic", sans-serif;
+  font-size: 13px;
+}
+
+/* ─── 헤더 ───────────────────────────────────── */
+.ctrl-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+  padding: 0 20px;
+  background: #000000;
+  flex-shrink: 0;
+}
+.ctrl-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+.ctrl-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  color: rgba(255, 255, 255);
+}
+.ctrl-btn-monitor {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  padding: 4px 14px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.ctrl-btn-monitor:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+/* ─── 메인 바디 2컬럼 ───────────────────────── */
+.ctrl-body {
+  display: flex;
+  gap: 0;
+  height: 900px;
+  overflow: hidden;
+}
+
+/* 좌: 35% */
+.ctrl-left {
+  width: 35%;
+  min-width: 560px;
+  max-width: 672px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 12px 16px 16px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+/* 우: 나머지 */
+.ctrl-right {
+  flex: 1;
+  min-height: 0;
+  padding: 16px 16px 16px 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── 공통 카드 ─────────────────────────────── */
+.ctrl-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.ctrl-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 16px;
+  border-top: 3px solid #fff;
+  border-bottom: 1px solid #e8edf3;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2c4b48;
+}
+.ctrl-card-header i {
+  color: #2c4b48;
+  font-size: 14px;
+}
+
+.ctrl-card-header-flex {
+  justify-content: space-between;
+}
+
+.ctrl-card-body {
+  padding: 16px;
+}
+
+/* ─── 제어 패널 ──────────────────────────────── */
+.ctrl-panel {
+  border-top: 3px solid #fff;
+}
+
+.ctrl-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.ctrl-label {
+  font-size: 13px;
+  color: #6c757d;
+  white-space: nowrap;
+  min-width: 60px;
+  font-weight: 600;
+}
+
+.ctrl-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.ctrl-select {
+  appearance: auto;
+  background: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  color: #333;
+  font-family: "NanumSquare", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 6px 10px;
+  width: 76px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.ctrl-select:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(44, 75, 72, 0.15);
+}
+
+.ctrl-input-number {
+  background: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  color: #333;
+  font-family: "NanumSquare", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 6px 10px;
+  width: 80px;
+  text-align: center;
+  transition: border-color 0.15s;
+}
+.ctrl-input-number:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(44, 75, 72, 0.15);
+}
+
+.ctrl-range-label {
+  font-size: 12px;
+  color: #9ea4ab;
+}
+
+/* 버튼 그룹 */
+.ctrl-btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+.ctrl-btn-start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+  height: 42px;
+  background: #0d6efd;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: "NanumSquare", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: all 0.18s;
+}
+.ctrl-btn-start:hover {
+  background: #2305e7;
+  box-shadow: 0 4px 12px rgba(44, 75, 72, 0.3);
+  transform: translateY(-1px);
+}
+.ctrl-btn-start:active {
+  transform: translateY(0);
+}
+.ctrl-btn-start.is-running {
+  background: #e07b00;
+}
+.ctrl-btn-start.is-running:hover {
+  background: #f08800;
+  box-shadow: 0 4px 12px rgba(224, 123, 0, 0.3);
+}
+.ctrl-btn-start:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ctrl-btn-stop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 42px;
+  padding: 0 18px;
+  background: #fff;
+  border: 2px solid #dc3545;
+  border-radius: 8px;
+  color: #dc3545;
+  font-family: "NanumSquare", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+.ctrl-btn-stop:hover {
+  background: #dc3545;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+  transform: translateY(-1px);
+}
+.ctrl-btn-stop:active {
+  transform: translateY(0);
+}
+.ctrl-btn-stop:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ─── 상태 카드 ──────────────────────────────── */
+.ctrl-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.ctrl-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.badge-running {
+  background: rgba(224, 123, 0, 0.12);
+  color: #e07b00;
+}
+.badge-waiting {
+  background: rgba(44, 75, 72, 0.1);
+  color: #2c4b48;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+.blink {
+  animation: blink 1.4s ease-in-out infinite;
+  font-size: 9px;
+}
+
+.ctrl-countdown {
+  font-size: 13px;
+  color: #6c757d;
+  font-variant-numeric: tabular-nums;
+}
+
+.ctrl-progress-wrap {
+  margin-top: 4px;
+}
+.ctrl-progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #6c757d;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.ctrl-progress-track {
+  height: 8px;
+  background: #e8edf3;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.ctrl-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2c4b48, #4595ff);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+  min-width: 0;
+}
+
+/* ─── 히스토리 ───────────────────────────────── */
+.ctrl-history-card {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ctrl-history-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+.ctrl-history-empty {
+  padding: 24px;
+  text-align: center;
+  color: #adb5bd;
+  font-size: 13px;
+}
+
+.ctrl-history-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #f0f4f8;
+  font-size: 12px;
+  transition: background 0.12s;
+}
+.ctrl-history-item:hover {
+  background: #f8fafc;
+}
+.ctrl-history-item:last-child {
+  border-bottom: none;
+}
+
+.h-time {
+  color: #adb5bd;
+  min-width: 52px;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+.h-cmd {
+  font-weight: 700;
+  min-width: 36px;
+  flex-shrink: 0;
+  color: #495057;
+}
+.h-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.h-status {
+  font-weight: 700;
+}
+.h-status.s-success {
+  color: #198754;
+}
+.h-status.s-failed {
+  color: #dc3545;
+}
+.h-status.s-started {
+  color: #2c4b48;
+}
+.h-rooms {
+  color: #adb5bd;
+  font-size: 11px;
+}
+
+.ctrl-count-badge {
+  background: #edf2f9;
+  color: #6c757d;
+  border-radius: 10px;
+  padding: 2px 10px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ─── 명령어 테이블 ──────────────────────────── */
+.ctrl-table-card {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ctrl-table-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.ctrl-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.ctrl-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #f4f6f9;
+  border-bottom: 2px solid #dee2e6;
+  padding: 11px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #495057;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ctrl-table tbody td {
+  padding: 10px 12px;
+  font-size: 13px;
+  vertical-align: middle;
+  border-bottom: 1px solid #f0f4f8;
+  text-align: center;
+  color: #495057;
+}
+.ctrl-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* 컬럼 너비 */
+.col-num {
+  width: 52px;
+}
+.col-label {
+  width: auto;
+}
+.col-status {
+  width: 90px;
+}
+
+/* 레이블 셀 */
+.label-cell {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 번호 셀 */
+.num-cell {
+  color: #adb5bd;
+  font-weight: 700;
+}
+
+/* 행 상태: 대기 / 진행 */
+.row-sending td {
+  background: rgba(224, 123, 0, 0.06);
+}
+.row-sending td:first-child {
+  border-left: 3px solid #e07b00;
+}
+.row-waiting td {
+  /* 초기 상태 */
+}
+.row-sent td {
+  background: rgba(34, 197, 94, 0.05);
+}
+.row-sent td:first-child {
+  border-left: 3px solid #22c55e;
+}
+.row-failed td {
+  background: rgba(239, 68, 68, 0.05);
+}
+.row-failed td:first-child {
+  border-left: 3px solid #ef4444;
+}
+
+/* 상태 텍스트 (대기/진행/성공/실패) */
+.st-waiting {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #adb5bd;
+}
+.st-sending {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #e07b00;
+}
+.st-sent {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #22c55e;
+}
+.st-failed {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ef4444;
+}
+
+/* 전송중 스피너 */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spinner {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border: 2px solid #e07b00;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  vertical-align: middle;
+}
+
+/* ─── 스크롤바 ───────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #ced4da;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #adb5bd;
+}

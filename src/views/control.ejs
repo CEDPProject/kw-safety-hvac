@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <%- include("control-head.ejs") -%>
+  <body>
+    <!-- 헤더 -->
+    <header class="ctrl-header">
+      <div class="ctrl-header-left">
+        <a href=""
+          ><img src="/info/icon_menu.png" width="22" height="22" alt=""
+        /></a>
+        <span>안정공조시스템을위한 명령어 전송</span>
+      </div>
+      <div class="ctrl-header-right">
+        <a href="/info" class="ctrl-btn-monitor">모니터링 페이지</a>
+        <span id="time"></span>
+      </div>
+    </header>
+
+    <!-- 메인 레이아웃: 좌(제어패널+히스토리) / 우(명령어 리스트) -->
+    <div class="ctrl-body">
+      <!-- 좌측 패널 -->
+      <div class="ctrl-left">
+        <!-- 제어 패널 -->
+        <div class="ctrl-card ctrl-panel">
+          <div class="ctrl-card-header">
+            <i class="bi bi-sliders"></i> 명령어 자동 전송
+          </div>
+          <div class="ctrl-card-body">
+            <div class="ctrl-row">
+              <span class="ctrl-label">시작 번호</span>
+              <div class="ctrl-input-group">
+                <select id="startIndex" class="ctrl-select">
+                  <% for (let i = 1; i <= totalCount; i++) { %>
+                  <option value="<%= i %>"><%= i %></option>
+                  <% } %>
+                </select>
+                <span class="ctrl-range-label">번부터</span>
+              </div>
+            </div>
+            <div class="ctrl-row">
+              <span class="ctrl-label">종료 번호</span>
+              <div class="ctrl-input-group">
+                <select id="endIndex" class="ctrl-select">
+                  <% for (let i = 1; i <= totalCount; i++) { %>
+                  <option value="<%= i %>" <%= i === totalCount ? 'selected' : '' %>><%= i %></option>
+                  <% } %>
+                </select>
+                <span class="ctrl-range-label">번까지</span>
+              </div>
+            </div>
+            <div class="ctrl-row">
+              <span class="ctrl-label">전송 간격</span>
+              <div class="ctrl-input-group">
+                <input
+                  id="intervalMinutes"
+                  type="number"
+                  class="ctrl-input-number"
+                  min="10"
+                  max="240"
+                  step="10"
+                  value="60"
+                />
+                <span class="ctrl-range-label">분 (10~240분)</span>
+              </div>
+            </div>
+            <div class="ctrl-btn-group">
+              <button id="btnStart" class="ctrl-btn-start">
+                <i class="bi bi-play-fill"></i> 전송 시작
+              </button>
+              <button id="btnStop" class="ctrl-btn-stop" style="display: none">
+                <i class="bi bi-stop-fill"></i> 전송 종료
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 상태 패널 -->
+        <div
+          class="ctrl-card ctrl-status-card"
+          id="statusCard"
+          style="display: none"
+        >
+          <div class="ctrl-card-header">
+            <i class="bi bi-activity"></i> 전송 상태
+          </div>
+          <div class="ctrl-card-body">
+            <div class="ctrl-status-row">
+              <span id="statusBadge" class="ctrl-badge badge-running">
+                <i class="bi bi-circle-fill blink"></i> 배치 실행중
+              </span>
+              <span id="statusCountdown" class="ctrl-countdown">--:--</span>
+            </div>
+            <div class="ctrl-progress-wrap">
+              <div class="ctrl-progress-info">
+                <span id="statusLabel">배치 #1</span>
+                <span id="statusProgress">0 / 0</span>
+              </div>
+              <div class="ctrl-progress-track">
+                <div
+                  id="progressBar"
+                  class="ctrl-progress-fill"
+                  style="width: 0%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 전송 히스토리 -->
+        <div class="ctrl-card ctrl-history-card">
+          <div class="ctrl-card-header ctrl-card-header-flex">
+            <span><i class="bi bi-clock-history"></i> 전송 히스토리</span>
+            <span id="historyCount" class="ctrl-count-badge">0건</span>
+          </div>
+          <div id="historyList" class="ctrl-history-list">
+            <div class="ctrl-history-empty">아직 전송 기록이 없습니다</div>
+          </div>
+        </div>
+      </div>
+      <!-- /ctrl-left -->
+
+      <!-- 우측: 명령어 리스트 -->
+      <div class="ctrl-right">
+        <div class="ctrl-card ctrl-table-card">
+          <div class="ctrl-card-header">
+            <i class="bi bi-list-ol"></i> 명령어 리스트
+          </div>
+          <div class="ctrl-table-wrap">
+            <table class="ctrl-table">
+              <thead>
+                <tr>
+                  <th class="col-num">#</th>
+                  <th class="col-label">환기</th>
+                  <th class="col-label">에어컨</th>
+                  <th class="col-status">상태</th>
+                </tr>
+              </thead>
+              <tbody id="commandBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- /ctrl-right -->
+    </div>
+    <!-- /ctrl-body -->
+
+    <script type="module" src="/control/control.js"></script>
+  </body>
+</html>

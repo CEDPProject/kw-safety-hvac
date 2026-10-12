@@ -1,0 +1,1332 @@
+[
+  {
+    "row_index": 1,
+    "vent_label": "바이패스 4단",
+    "ac_label": "난방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101040399180", "CCMD0201040399180", "CCMD0301040399180"]
+  },
+  {
+    "row_index": 2,
+    "vent_label": "바이패스 6단",
+    "ac_label": "난방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101040399180", "CCMD0201040399180", "CCMD0301040399180"]
+  },
+  {
+    "row_index": 3,
+    "vent_label": "공기청정 2단",
+    "ac_label": "난방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101040299260", "CCMD0201040299260", "CCMD0301040299260"]
+  },
+  {
+    "row_index": 4,
+    "vent_label": "공기청정 4단",
+    "ac_label": "난방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101040399260", "CCMD0201040399260", "CCMD0301040399260"]
+  },
+  {
+    "row_index": 5,
+    "vent_label": "공기청정 2단",
+    "ac_label": "난방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101040299220", "CCMD0201040299220", "CCMD0301040299220"]
+  },
+  {
+    "row_index": 6,
+    "vent_label": "바이패스 2단",
+    "ac_label": "난방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101040299260", "CCMD0201040299260", "CCMD0301040299260"]
+  },
+  {
+    "row_index": 7,
+    "vent_label": "Off",
+    "ac_label": "난방 약풍 26도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101040199260", "CCMD0201040199260", "CCMD0301040199260"]
+  },
+  {
+    "row_index": 8,
+    "vent_label": "공기청정 6단",
+    "ac_label": "난방 중풍 18도",
+    "vent": "CCTLA0UXSXP1W6E1H2",
+    "con": ["CCMD0101040299180", "CCMD0201040299180", "CCMD0301040299180"]
+  },
+  {
+    "row_index": 9,
+    "vent_label": "환기 6단",
+    "ac_label": "난방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101040399260", "CCMD0201040399260", "CCMD0301040399260"]
+  },
+  {
+    "row_index": 10,
+    "vent_label": "환기 4단",
+    "ac_label": "난방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101040199180", "CCMD0201040199180", "CCMD0301040199180"]
+  },
+  {
+    "row_index": 11,
+    "vent_label": "환기 2단",
+    "ac_label": "난방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101040299260", "CCMD0201040299260", "CCMD0301040299260"]
+  },
+  {
+    "row_index": 12,
+    "vent_label": "환기 2단",
+    "ac_label": "난방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101040299220", "CCMD0201040299220", "CCMD0301040299220"]
+  },
+  {
+    "row_index": 13,
+    "vent_label": "환기 4단",
+    "ac_label": "난방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101040399260", "CCMD0201040399260", "CCMD0301040399260"]
+  },
+  {
+    "row_index": 14,
+    "vent_label": "바이패스 6단",
+    "ac_label": "난방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101040199180", "CCMD0201040199180", "CCMD0301040199180"]
+  },
+  {
+    "row_index": 15,
+    "vent_label": "바이패스 2단",
+    "ac_label": "난방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101040399260", "CCMD0201040399260", "CCMD0301040399260"]
+  },
+  {
+    "row_index": 16,
+    "vent_label": "공기청정 4단",
+    "ac_label": "난방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101040299220", "CCMD0201040299220", "CCMD0301040299220"]
+  },
+  {
+    "row_index": 17,
+    "vent_label": "환기 6단",
+    "ac_label": "난방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101040199180", "CCMD0201040199180", "CCMD0301040199180"]
+  },
+  {
+    "row_index": 18,
+    "vent_label": "환기 2단",
+    "ac_label": "난방 약풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101040199220", "CCMD0201040199220", "CCMD0301040199220"]
+  },
+  {
+    "row_index": 19,
+    "vent_label": "공기청정 6단",
+    "ac_label": "난방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0101040399220", "CCMD0201040399220", "CCMD0301040399220"]
+  },
+  {
+    "row_index": 20,
+    "vent_label": "환기 2단",
+    "ac_label": "난방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101040299180", "CCMD0201040299180", "CCMD0301040299180"]
+  },
+  {
+    "row_index": 21,
+    "vent_label": "환기 2단",
+    "ac_label": "난방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101040399260", "CCMD0201040399260", "CCMD0301040399260"]
+  },
+  {
+    "row_index": 22,
+    "vent_label": "환기 6단",
+    "ac_label": "난방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101040299260", "CCMD0201040299260", "CCMD0301040299260"]
+  },
+  {
+    "row_index": 23,
+    "vent_label": "바이패스 4단",
+    "ac_label": "난방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101040399220", "CCMD0201040399220", "CCMD0301040399220"]
+  },
+  {
+    "row_index": 24,
+    "vent_label": "환기 2단",
+    "ac_label": "난방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101040199260", "CCMD0201040199260", "CCMD0301040199260"]
+  },
+  {
+    "row_index": 25,
+    "vent_label": "바이패스 6단",
+    "ac_label": "난방 약풍 22도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101040199220", "CCMD0201040199220", "CCMD0301040199220"]
+  },
+  {
+    "row_index": 26,
+    "vent_label": "공기청정 6단",
+    "ac_label": "난방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0101040299220", "CCMD0201040299220", "CCMD0301040299220"]
+  },
+  {
+    "row_index": 27,
+    "vent_label": "공기청정 4단",
+    "ac_label": "난방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101040299260", "CCMD0201040299260", "CCMD0301040299260"]
+  },
+  {
+    "row_index": 28,
+    "vent_label": "바이패스 6단",
+    "ac_label": "난방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101040299220", "CCMD0201040299220", "CCMD0301040299220"]
+  },
+  {
+    "row_index": 29,
+    "vent_label": "바이패스 4단",
+    "ac_label": "난방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101040299180", "CCMD0201040299180", "CCMD0301040299180"]
+  },
+  {
+    "row_index": 30,
+    "vent_label": "공기청정 4단",
+    "ac_label": "난방 약풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101040199220", "CCMD0201040199220", "CCMD0301040199220"]
+  },
+  {
+    "row_index": 31,
+    "vent_label": "바이패스 2단",
+    "ac_label": "난방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101040299180", "CCMD0201040299180", "CCMD0301040299180"]
+  },
+  {
+    "row_index": 32,
+    "vent_label": "환기 6단",
+    "ac_label": "난방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101040399180", "CCMD0201040399180", "CCMD0301040399180"]
+  },
+  {
+    "row_index": 33,
+    "vent_label": "Off",
+    "ac_label": "난방 약풍 18도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101040199180", "CCMD0201040199180", "CCMD0301040199180"]
+  },
+  {
+    "row_index": 34,
+    "vent_label": "바이패스 2단",
+    "ac_label": "난방 약풍 18도",
+    "vent": "CCTLA0UXSXP1W2E1H3",
+    "con": ["CCMD0101040199180", "CCMD0201040199180", "CCMD0301040199180"]
+  },
+  {
+    "row_index": 35,
+    "vent_label": "환기 4단",
+    "ac_label": "난방 약풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101040199220", "CCMD0201040199220", "CCMD0301040199220"]
+  },
+  {
+    "row_index": 36,
+    "vent_label": "바이패스 2단",
+    "ac_label": "난방 약풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101040199220", "CCMD0201040199220", "CCMD0301040199220"]
+  },
+  {
+    "row_index": 37,
+    "vent_label": "바이패스 2단",
+    "ac_label": "난방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101040399220", "CCMD0201040399220", "CCMD0301040399220"]
+  },
+  {
+    "row_index": 38,
+    "vent_label": "환기 6단",
+    "ac_label": "난방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101040299220", "CCMD0201040299220", "CCMD0301040299220"]
+  },
+  {
+    "row_index": 39,
+    "vent_label": "Off",
+    "ac_label": "난방 중풍 22도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101040299220", "CCMD0201040299220", "CCMD0301040299220"]
+  },
+  {
+    "row_index": 40,
+    "vent_label": "공기청정 6단",
+    "ac_label": "난방 약풍 18도",
+    "vent": "CCTLA0UXSXP1W6E1H2",
+    "con": ["CCMD0101040199180", "CCMD0201040199180", "CCMD0301040199180"]
+  },
+  {
+    "row_index": 41,
+    "vent_label": "공기청정 4단",
+    "ac_label": "난방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101040199180", "CCMD0201040199180", "CCMD0301040199180"]
+  },
+  {
+    "row_index": 42,
+    "vent_label": "Off",
+    "ac_label": "난방 중풍 18도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101040299180", "CCMD0201040299180", "CCMD0301040299180"]
+  },
+  {
+    "row_index": 43,
+    "vent_label": "바이패스 6단",
+    "ac_label": "난방 중풍 26도",
+    "vent": "CCTLA0UXSXP1W6E1H3",
+    "con": ["CCMD0101040299260", "CCMD0201040299260", "CCMD0301040299260"]
+  },
+  {
+    "row_index": 44,
+    "vent_label": "공기청정 2단",
+    "ac_label": "난방 약풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101040199220", "CCMD0201040199220", "CCMD0301040199220"]
+  },
+  {
+    "row_index": 45,
+    "vent_label": "공기청정 6단",
+    "ac_label": "난방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0101040399260", "CCMD0201040399260", "CCMD0301040399260"]
+  },
+  {
+    "row_index": 46,
+    "vent_label": "공기청정 2단",
+    "ac_label": "난방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101040299180", "CCMD0201040299180", "CCMD0301040299180"]
+  },
+  {
+    "row_index": 47,
+    "vent_label": "바이패스 4단",
+    "ac_label": "난방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101040299260", "CCMD0201040299260", "CCMD0301040299260"]
+  },
+  {
+    "row_index": 48,
+    "vent_label": "환기 2단",
+    "ac_label": "난방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101040399220", "CCMD0201040399220", "CCMD0301040399220"]
+  },
+  {
+    "row_index": 49,
+    "vent_label": "공기청정 4단",
+    "ac_label": "난방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101040199260", "CCMD0201040199260", "CCMD0301040199260"]
+  },
+  {
+    "row_index": 50,
+    "vent_label": "공기청정 4단",
+    "ac_label": "난방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101040299180", "CCMD0201040299180", "CCMD0301040299180"]
+  },
+  {
+    "row_index": 51,
+    "vent_label": "환기 2단",
+    "ac_label": "난방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101040199180", "CCMD0201040199180", "CCMD0301040199180"]
+  },
+  {
+    "row_index": 52,
+    "vent_label": "환기 4단",
+    "ac_label": "난방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101040399180", "CCMD0201040399180", "CCMD0301040399180"]
+  },
+  {
+    "row_index": 53,
+    "vent_label": "바이패스 6단",
+    "ac_label": "난방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101040299180", "CCMD0201040299180", "CCMD0301040299180"]
+  },
+  {
+    "row_index": 54,
+    "vent_label": "바이패스 6단",
+    "ac_label": "난방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101040399220", "CCMD0201040399220", "CCMD0301040399220"]
+  },
+  {
+    "row_index": 55,
+    "vent_label": "환기 4단",
+    "ac_label": "난방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101040399220", "CCMD0201040399220", "CCMD0301040399220"]
+  },
+  {
+    "row_index": 56,
+    "vent_label": "환기 4단",
+    "ac_label": "난방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101040299180", "CCMD0201040299180", "CCMD0301040299180"]
+  },
+  {
+    "row_index": 57,
+    "vent_label": "환기 4단",
+    "ac_label": "난방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101040299260", "CCMD0201040299260", "CCMD0301040299260"]
+  },
+  {
+    "row_index": 58,
+    "vent_label": "바이패스 6단",
+    "ac_label": "난방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101040199260", "CCMD0201040199260", "CCMD0301040199260"]
+  },
+  {
+    "row_index": 59,
+    "vent_label": "바이패스 4단",
+    "ac_label": "난방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101040199260", "CCMD0201040199260", "CCMD0301040199260"]
+  },
+  {
+    "row_index": 60,
+    "vent_label": "환기 6단",
+    "ac_label": "난방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101040199260", "CCMD0201040199260", "CCMD0301040199260"]
+  },
+  {
+    "row_index": 61,
+    "vent_label": "바이패스 2단",
+    "ac_label": "난방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101040399180", "CCMD0201040399180", "CCMD0301040399180"]
+  },
+  {
+    "row_index": 62,
+    "vent_label": "공기청정 4단",
+    "ac_label": "난방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101040399180", "CCMD0201040399180", "CCMD0301040399180"]
+  },
+  {
+    "row_index": 63,
+    "vent_label": "Off",
+    "ac_label": "난방 약풍 22도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101040199220", "CCMD0201040199220", "CCMD0301040199220"]
+  },
+  {
+    "row_index": 64,
+    "vent_label": "환기 2단",
+    "ac_label": "난방 강풍 18도",
+    "vent": "CCTLA0UXSXP1W2E1H1",
+    "con": ["CCMD0101040399180", "CCMD0201040399180", "CCMD0301040399180"]
+  },
+  {
+    "row_index": 65,
+    "vent_label": "공기청정 2단",
+    "ac_label": "난방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101040399220", "CCMD0201040399220", "CCMD0301040399220"]
+  },
+  {
+    "row_index": 66,
+    "vent_label": "바이패스 2단",
+    "ac_label": "난방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101040199260", "CCMD0201040199260", "CCMD0301040199260"]
+  },
+  {
+    "row_index": 67,
+    "vent_label": "환기 6단",
+    "ac_label": "난방 약풍 22도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101040199220", "CCMD0201040199220", "CCMD0301040199220"]
+  },
+  {
+    "row_index": 68,
+    "vent_label": "공기청정 2단",
+    "ac_label": "난방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101040399260", "CCMD0201040399260", "CCMD0301040399260"]
+  },
+  {
+    "row_index": 69,
+    "vent_label": "공기청정 6단",
+    "ac_label": "난방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0101040199260", "CCMD0201040199260", "CCMD0301040199260"]
+  },
+  {
+    "row_index": 70,
+    "vent_label": "바이패스 4단",
+    "ac_label": "난방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101040299220", "CCMD0201040299220", "CCMD0301040299220"]
+  },
+  {
+    "row_index": 71,
+    "vent_label": "환기 6단",
+    "ac_label": "난방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101040299180", "CCMD0201040299180", "CCMD0301040299180"]
+  },
+  {
+    "row_index": 72,
+    "vent_label": "공기청정 2단",
+    "ac_label": "난방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101040399180", "CCMD0201040399180", "CCMD0301040399180"]
+  },
+  {
+    "row_index": 73,
+    "vent_label": "Off",
+    "ac_label": "난방 강풍 18도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101040399180", "CCMD0201040399180", "CCMD0301040399180"]
+  },
+  {
+    "row_index": 74,
+    "vent_label": "공기청정 2단",
+    "ac_label": "난방 약풍 26도",
+    "vent": "CCTLA0UXSXP1W2E1H2",
+    "con": ["CCMD0101040199260", "CCMD0201040199260", "CCMD0301040199260"]
+  },
+  {
+    "row_index": 75,
+    "vent_label": "바이패스 4단",
+    "ac_label": "난방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101040199260", "CCMD0201040199260", "CCMD0301040199260"]
+  },
+  {
+    "row_index": 76,
+    "vent_label": "환기 4단",
+    "ac_label": "난방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101040199260", "CCMD0201040199260", "CCMD0301040199260"]
+  },
+  {
+    "row_index": 77,
+    "vent_label": "공기청정 6단",
+    "ac_label": "난방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0101040299260", "CCMD0201040299260", "CCMD0301040299260"]
+  },
+  {
+    "row_index": 78,
+    "vent_label": "공기청정 6단",
+    "ac_label": "난방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0101040399180", "CCMD0201040399180", "CCMD0301040399180"]
+  },
+  {
+    "row_index": 79,
+    "vent_label": "환기 4단",
+    "ac_label": "난방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101040299220", "CCMD0201040299220", "CCMD0301040299220"]
+  },
+  {
+    "row_index": 80,
+    "vent_label": "환기 6단",
+    "ac_label": "난방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101040399220", "CCMD0201040399220", "CCMD0301040399220"]
+  },
+  {
+    "row_index": 81,
+    "vent_label": "공기청정 2단",
+    "ac_label": "난방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101040199180", "CCMD0201040199180", "CCMD0301040199180"]
+  },
+  {
+    "row_index": 82,
+    "vent_label": "바이패스 4단",
+    "ac_label": "난방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101040199180", "CCMD0201040199180", "CCMD0301040199180"]
+  },
+  {
+    "row_index": 83,
+    "vent_label": "바이패스 4단",
+    "ac_label": "난방 약풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101040199220", "CCMD0201040199220", "CCMD0301040199220"]
+  },
+  {
+    "row_index": 84,
+    "vent_label": "Off",
+    "ac_label": "난방 강풍 26도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101040399260", "CCMD0201040399260", "CCMD0301040399260"]
+  },
+  {
+    "row_index": 85,
+    "vent_label": "Off",
+    "ac_label": "난방 강풍 22도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101040399220", "CCMD0201040399220", "CCMD0301040399220"]
+  },
+  {
+    "row_index": 86,
+    "vent_label": "공기청정 6단",
+    "ac_label": "난방 약풍 22도",
+    "vent": "CCTLA0UXSXP1W6E1H2",
+    "con": ["CCMD0101040199220", "CCMD0201040199220", "CCMD0301040199220"]
+  },
+  {
+    "row_index": 87,
+    "vent_label": "Off",
+    "ac_label": "난방 중풍 26도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101040299260", "CCMD0201040299260", "CCMD0301040299260"]
+  },
+  {
+    "row_index": 88,
+    "vent_label": "바이패스 6단",
+    "ac_label": "난방 강풍 26도",
+    "vent": "CCTLA0UXSXP1W6E1H3",
+    "con": ["CCMD0101040399260", "CCMD0201040399260", "CCMD0301040399260"]
+  },
+  {
+    "row_index": 89,
+    "vent_label": "바이패스 2단",
+    "ac_label": "난방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101040299220", "CCMD0201040299220", "CCMD0301040299220"]
+  },
+  {
+    "row_index": 90,
+    "vent_label": "공기청정 4단",
+    "ac_label": "난방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101040399220", "CCMD0201040399220", "CCMD0301040399220"]
+  },
+  {
+    "row_index": 91,
+    "vent_label": "바이패스 2단",
+    "ac_label": "Off",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0100999999999", "CCMD0200999999999", "CCMD0300999999999"]
+  },
+  {
+    "row_index": 92,
+    "vent_label": "공기청정 4단",
+    "ac_label": "Off",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0100999999999", "CCMD0200999999999", "CCMD0300999999999"]
+  },
+  {
+    "row_index": 93,
+    "vent_label": "공기청정 2단",
+    "ac_label": "Off",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0100999999999", "CCMD0200999999999", "CCMD0300999999999"]
+  },
+  {
+    "row_index": 94,
+    "vent_label": "바이패스 6단",
+    "ac_label": "Off",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0100999999999", "CCMD0200999999999", "CCMD0300999999999"]
+  },
+  {
+    "row_index": 95,
+    "vent_label": "바이패스 4단",
+    "ac_label": "Off",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0100999999999", "CCMD0200999999999", "CCMD0300999999999"]
+  },
+  {
+    "row_index": 96,
+    "vent_label": "환기 2단",
+    "ac_label": "Off",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0100999999999", "CCMD0200999999999", "CCMD0300999999999"]
+  },
+  {
+    "row_index": 97,
+    "vent_label": "환기 6단",
+    "ac_label": "Off",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0100999999999", "CCMD0200999999999", "CCMD0300999999999"]
+  },
+  {
+    "row_index": 98,
+    "vent_label": "공기청정 6단",
+    "ac_label": "Off",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0100999999999", "CCMD0200999999999", "CCMD0300999999999"]
+  },
+  {
+    "row_index": 99,
+    "vent_label": "환기 4단",
+    "ac_label": "Off",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0100999999999", "CCMD0200999999999", "CCMD0300999999999"]
+  },
+  {
+    "row_index": 100,
+    "vent_label": "Off",
+    "ac_label": "Off",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0100999999999", "CCMD0200999999999", "CCMD0300999999999"]
+  },
+  {
+    "row_index": 101,
+    "vent_label": "공기청정 2단",
+    "ac_label": "냉방 약풍 22도",
+    "vent": "CCTLA0UXSXP1W2E1H2",
+    "con": ["CCMD0101010199220", "CCMD0201010199220", "CCMD0301010199220"]
+  },
+  {
+    "row_index": 102,
+    "vent_label": "공기청정 6단",
+    "ac_label": "냉방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0101010299260", "CCMD0201010299260", "CCMD0301010299260"]
+  },
+  {
+    "row_index": 103,
+    "vent_label": "환기 6단",
+    "ac_label": "냉방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101010199180", "CCMD0201010199180", "CCMD0301010199180"]
+  },
+  {
+    "row_index": 104,
+    "vent_label": "바이패스 6단",
+    "ac_label": "냉방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101010199260", "CCMD0201010199260", "CCMD0301010199260"]
+  },
+  {
+    "row_index": 105,
+    "vent_label": "환기 4단",
+    "ac_label": "냉방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101010199260", "CCMD0201010199260", "CCMD0301010199260"]
+  },
+  {
+    "row_index": 106,
+    "vent_label": "공기청정 2단",
+    "ac_label": "냉방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101010299260", "CCMD0201010299260", "CCMD0301010299260"]
+  },
+  {
+    "row_index": 107,
+    "vent_label": "환기 2단",
+    "ac_label": "냉방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101010399260", "CCMD0201010399260", "CCMD0301010399260"]
+  },
+  {
+    "row_index": 108,
+    "vent_label": "바이패스 4단",
+    "ac_label": "냉방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101010299220", "CCMD0201010299220", "CCMD0301010299220"]
+  },
+  {
+    "row_index": 109,
+    "vent_label": "환기 4단",
+    "ac_label": "냉방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101010399180", "CCMD0201010399180", "CCMD0301010399180"]
+  },
+  {
+    "row_index": 110,
+    "vent_label": "환기 4단",
+    "ac_label": "냉방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101010299260", "CCMD0201010299260", "CCMD0301010299260"]
+  },
+  {
+    "row_index": 111,
+    "vent_label": "공기청정 6단",
+    "ac_label": "냉방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0101010199180", "CCMD0201010199180", "CCMD0301010199180"]
+  },
+  {
+    "row_index": 112,
+    "vent_label": "환기 2단",
+    "ac_label": "냉방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101010299180", "CCMD0201010299180", "CCMD0301010299180"]
+  },
+  {
+    "row_index": 113,
+    "vent_label": "공기청정 6단",
+    "ac_label": "냉방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0101010399260", "CCMD0201010399260", "CCMD0301010399260"]
+  },
+  {
+    "row_index": 114,
+    "vent_label": "바이패스 6단",
+    "ac_label": "냉방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101010399260", "CCMD0201010399260", "CCMD0301010399260"]
+  },
+  {
+    "row_index": 115,
+    "vent_label": "환기 6단",
+    "ac_label": "냉방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101010399260", "CCMD0201010399260", "CCMD0301010399260"]
+  },
+  {
+    "row_index": 116,
+    "vent_label": "바이패스 2단",
+    "ac_label": "냉방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101010299180", "CCMD0201010299180", "CCMD0301010299180"]
+  },
+  {
+    "row_index": 117,
+    "vent_label": "바이패스 2단",
+    "ac_label": "냉방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101010399260", "CCMD0201010399260", "CCMD0301010399260"]
+  },
+  {
+    "row_index": 118,
+    "vent_label": "환기 2단",
+    "ac_label": "냉방 약풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101010199220", "CCMD0201010199220", "CCMD0301010199220"]
+  },
+  {
+    "row_index": 119,
+    "vent_label": "공기청정 2단",
+    "ac_label": "냉방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101010399220", "CCMD0201010399220", "CCMD0301010399220"]
+  },
+  {
+    "row_index": 120,
+    "vent_label": "바이패스 4단",
+    "ac_label": "냉방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101010199180", "CCMD0201010199180", "CCMD0301010199180"]
+  },
+  {
+    "row_index": 121,
+    "vent_label": "환기 2단",
+    "ac_label": "냉방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101010199180", "CCMD0201010399180", "CCMD0301010399180"]
+  },
+  {
+    "row_index": 122,
+    "vent_label": "환기 2단",
+    "ac_label": "냉방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101010299260", "CCMD0201010299260", "CCMD0301010299260"]
+  },
+  {
+    "row_index": 123,
+    "vent_label": "바이패스 6단",
+    "ac_label": "냉방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101010399220", "CCMD0201010399220", "CCMD0301010399220"]
+  },
+  {
+    "row_index": 124,
+    "vent_label": "Off",
+    "ac_label": "냉방 약풍 18도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101010199180", "CCMD0201010199180", "CCMD0301010199180"]
+  },
+  {
+    "row_index": 125,
+    "vent_label": "환기 6단",
+    "ac_label": "냉방 강풍 22도",
+    "vent": "CCTLA0UXSXP1W6E1H1",
+    "con": ["CCMD0101010399220", "CCMD0201010399220", "CCMD0301010399220"]
+  },
+  {
+    "row_index": 126,
+    "vent_label": "Off",
+    "ac_label": "냉방 강풍 18도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101010399180", "CCMD0201010399180", "CCMD0301010399180"]
+  },
+  {
+    "row_index": 127,
+    "vent_label": "환기 4단",
+    "ac_label": "냉방 중풍 18도",
+    "vent": "CCTLA0UXSXP1W4E1H1",
+    "con": ["CCMD0101010299180", "CCMD0201010299180", "CCMD0301010299180"]
+  },
+  {
+    "row_index": 128,
+    "vent_label": "공기청정 4단",
+    "ac_label": "냉방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101010299180", "CCMD0201010299180", "CCMD0301010299180"]
+  },
+  {
+    "row_index": 129,
+    "vent_label": "Off",
+    "ac_label": "냉방 약풍 22도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101010199220", "CCMD0201010199220", "CCMD0301010199220"]
+  },
+  {
+    "row_index": 130,
+    "vent_label": "바이패스 2단",
+    "ac_label": "냉방 약풍 26도",
+    "vent": "CCTLA0UXSXP1W2E1H3",
+    "con": ["CCMD0101010199260", "CCMD0201010199260", "CCMD0301010199260"]
+  },
+  {
+    "row_index": 131,
+    "vent_label": "환기 4단",
+    "ac_label": "냉방 약풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101010199220", "CCMD0201010199220", "CCMD0301010199220"]
+  },
+  {
+    "row_index": 132,
+    "vent_label": "환기 4단",
+    "ac_label": "냉방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101010299220", "CCMD0201010299220", "CCMD0301010299220"]
+  },
+  {
+    "row_index": 133,
+    "vent_label": "바이패스 6단",
+    "ac_label": "냉방 약풍 22도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101010199220", "CCMD0201010199220", "CCMD0301010199220"]
+  },
+  {
+    "row_index": 134,
+    "vent_label": "공기청정 6단",
+    "ac_label": "냉방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0101010399180", "CCMD0201010399180", "CCMD0301010399180"]
+  },
+  {
+    "row_index": 135,
+    "vent_label": "공기청정 4단",
+    "ac_label": "냉방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101010299220", "CCMD0201010299220", "CCMD0301010299220"]
+  },
+  {
+    "row_index": 136,
+    "vent_label": "환기 2단",
+    "ac_label": "냉방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101010199180", "CCMD0201010199180", "CCMD0301010199180"]
+  },
+  {
+    "row_index": 137,
+    "vent_label": "바이패스 4단",
+    "ac_label": "냉방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101010199260", "CCMD0201010199260", "CCMD0301010199260"]
+  },
+  {
+    "row_index": 138,
+    "vent_label": "공기청정 6단",
+    "ac_label": "냉방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0101010199260", "CCMD0201010199260", "CCMD0301010199260"]
+  },
+  {
+    "row_index": 139,
+    "vent_label": "Off",
+    "ac_label": "냉방 약풍 26도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101010199260", "CCMD0201010199260", "CCMD0301010199260"]
+  },
+  {
+    "row_index": 140,
+    "vent_label": "환기 6단",
+    "ac_label": "냉방 약풍 22도",
+    "vent": "CCTLA0UXSXP1W6E1H1",
+    "con": ["CCMD0101010199220", "CCMD0201010199220", "CCMD0301010199220"]
+  },
+  {
+    "row_index": 141,
+    "vent_label": "바이패스 6단",
+    "ac_label": "냉방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101010399180", "CCMD0201010399180", "CCMD0301010399180"]
+  },
+  {
+    "row_index": 142,
+    "vent_label": "환기 2단",
+    "ac_label": "냉방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101010199260", "CCMD0201010199260", "CCMD0301010199260"]
+  },
+  {
+    "row_index": 143,
+    "vent_label": "공기청정 2단",
+    "ac_label": "냉방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101010399260", "CCMD0201010399260", "CCMD0301010399260"]
+  },
+  {
+    "row_index": 144,
+    "vent_label": "환기 2단",
+    "ac_label": "냉방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101010399220", "CCMD0201010399220", "CCMD0301010399220"]
+  },
+  {
+    "row_index": 145,
+    "vent_label": "바이패스 4단",
+    "ac_label": "냉방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101010299180", "CCMD0201010299180", "CCMD0301010299180"]
+  },
+  {
+    "row_index": 146,
+    "vent_label": "바이패스 6단",
+    "ac_label": "냉방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101010299220", "CCMD0201010299220", "CCMD0301010299220"]
+  },
+  {
+    "row_index": 147,
+    "vent_label": "바이패스 2단",
+    "ac_label": "냉방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101010399180", "CCMD0201010399180", "CCMD0301010399180"]
+  },
+  {
+    "row_index": 148,
+    "vent_label": "바이패스 2단",
+    "ac_label": "냉방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101010299260", "CCMD0201010299260", "CCMD0301010299260"]
+  },
+  {
+    "row_index": 149,
+    "vent_label": "공기청정 2단",
+    "ac_label": "냉방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101010399180", "CCMD0201010399180", "CCMD0301010399180"]
+  },
+  {
+    "row_index": 150,
+    "vent_label": "공기청정 2단",
+    "ac_label": "냉방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101010199260", "CCMD0201010199260", "CCMD0301010199260"]
+  },
+  {
+    "row_index": 151,
+    "vent_label": "바이패스 4단",
+    "ac_label": "냉방 약풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101010199220", "CCMD0201010199220", "CCMD0301010199220"]
+  },
+  {
+    "row_index": 152,
+    "vent_label": "공기청정 6단",
+    "ac_label": "냉방 약풍 22도",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0101010199220", "CCMD0201010199220", "CCMD0301010199220"]
+  },
+  {
+    "row_index": 153,
+    "vent_label": "Off",
+    "ac_label": "냉방 강풍 22도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101010399220", "CCMD0201010399220", "CCMD0301010399220"]
+  },
+  {
+    "row_index": 154,
+    "vent_label": "바이패스 2단",
+    "ac_label": "냉방 약풍 22도",
+    "vent": "CCTLA0UXSXP1W2E1H3",
+    "con": ["CCMD0101010199220", "CCMD0201010199220", "CCMD0301010199220"]
+  },
+  {
+    "row_index": 155,
+    "vent_label": "바이패스 4단",
+    "ac_label": "냉방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101010399180", "CCMD0201010399180", "CCMD0301010399180"]
+  },
+  {
+    "row_index": 156,
+    "vent_label": "바이패스 4단",
+    "ac_label": "냉방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101010399220", "CCMD0201010399220", "CCMD0301010399220"]
+  },
+  {
+    "row_index": 157,
+    "vent_label": "바이패스 4단",
+    "ac_label": "냉방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101010399260", "CCMD0201010399260", "CCMD0301010399260"]
+  },
+  {
+    "row_index": 158,
+    "vent_label": "환기 6단",
+    "ac_label": "냉방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101010399180", "CCMD0201010399180", "CCMD0301010399180"]
+  },
+  {
+    "row_index": 159,
+    "vent_label": "공기청정 4단",
+    "ac_label": "냉방 강풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101010399180", "CCMD0201010399180", "CCMD0301010399180"]
+  },
+  {
+    "row_index": 160,
+    "vent_label": "Off",
+    "ac_label": "냉방 중풍 26도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101010299260", "CCMD0201010299260", "CCMD0301010299260"]
+  },
+  {
+    "row_index": 161,
+    "vent_label": "공기청정 4단",
+    "ac_label": "냉방 중풍 26도",
+    "vent": "CCTLA0UXSXP1W4E1H2",
+    "con": ["CCMD0101010299260", "CCMD0201010299260", "CCMD0301010299260"]
+  },
+  {
+    "row_index": 162,
+    "vent_label": "공기청정 2단",
+    "ac_label": "냉방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101010199180", "CCMD0201010199180", "CCMD0301010199180"]
+  },
+  {
+    "row_index": 163,
+    "vent_label": "공기청정 4단",
+    "ac_label": "냉방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101010399220", "CCMD0201010399220", "CCMD0301010399220"]
+  },
+  {
+    "row_index": 164,
+    "vent_label": "공기청정 6단",
+    "ac_label": "냉방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0101010399220", "CCMD0201010399220", "CCMD0301010399220"]
+  },
+  {
+    "row_index": 165,
+    "vent_label": "공기청정 2단",
+    "ac_label": "냉방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101010299220", "CCMD0201010299220", "CCMD0301010299220"]
+  },
+  {
+    "row_index": 166,
+    "vent_label": "공기청정 4단",
+    "ac_label": "냉방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101010399260", "CCMD0201010399260", "CCMD0301010399260"]
+  },
+  {
+    "row_index": 167,
+    "vent_label": "바이패스 2단",
+    "ac_label": "냉방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101010299220", "CCMD0201010299220", "CCMD0301010299220"]
+  },
+  {
+    "row_index": 168,
+    "vent_label": "바이패스 6단",
+    "ac_label": "냉방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101010199180", "CCMD0201010199180", "CCMD0301010199180"]
+  },
+  {
+    "row_index": 169,
+    "vent_label": "공기청정 2단",
+    "ac_label": "냉방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H2",
+    "con": ["CCMD0101010299180", "CCMD0201010299180", "CCMD0301010299180"]
+  },
+  {
+    "row_index": 170,
+    "vent_label": "환기 2단",
+    "ac_label": "냉방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H1",
+    "con": ["CCMD0101010299220", "CCMD0201010299220", "CCMD0301010299220"]
+  },
+  {
+    "row_index": 171,
+    "vent_label": "바이패스 2단",
+    "ac_label": "냉방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101010399220", "CCMD0201010399220", "CCMD0301010399220"]
+  },
+  {
+    "row_index": 172,
+    "vent_label": "바이패스 2단",
+    "ac_label": "냉방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW2E1H3",
+    "con": ["CCMD0101010199180", "CCMD0201010199180", "CCMD0301010199180"]
+  },
+  {
+    "row_index": 173,
+    "vent_label": "환기 6단",
+    "ac_label": "냉방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101010199260", "CCMD0201010199260", "CCMD0301010199260"]
+  },
+  {
+    "row_index": 174,
+    "vent_label": "환기 4단",
+    "ac_label": "냉방 강풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101010399260", "CCMD0201010399260", "CCMD0301010399260"]
+  },
+  {
+    "row_index": 175,
+    "vent_label": "Off",
+    "ac_label": "냉방 중풍 18도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101010299180", "CCMD0201010299180", "CCMD0301010299180"]
+  },
+  {
+    "row_index": 176,
+    "vent_label": "Off",
+    "ac_label": "냉방 중풍 22도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101010299220", "CCMD0201010299220", "CCMD0301010299220"]
+  },
+  {
+    "row_index": 177,
+    "vent_label": "공기청정 6단",
+    "ac_label": "냉방 중풍 22도",
+    "vent": "CCTLA0UXSXP1W6E1H2",
+    "con": ["CCMD0101010299220", "CCMD0201010299220", "CCMD0301010299220"]
+  },
+  {
+    "row_index": 178,
+    "vent_label": "Off",
+    "ac_label": "냉방 강풍 26도",
+    "vent": "CCTLAXUXSXP0WXEXHX",
+    "con": ["CCMD0101010399260", "CCMD0201010399260", "CCMD0301010399260"]
+  },
+  {
+    "row_index": 179,
+    "vent_label": "환기 6단",
+    "ac_label": "냉방 중풍 18도",
+    "vent": "CCTLA0UXSXP1W6E1H1",
+    "con": ["CCMD0101010299180", "CCMD0201010299180", "CCMD0301010299180"]
+  },
+  {
+    "row_index": 180,
+    "vent_label": "환기 4단",
+    "ac_label": "냉방 강풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101010399220", "CCMD0201010399220", "CCMD0301010399220"]
+  },
+  {
+    "row_index": 181,
+    "vent_label": "바이패스 6단",
+    "ac_label": "냉방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101010299180", "CCMD0201010299180", "CCMD0301010299180"]
+  },
+  {
+    "row_index": 182,
+    "vent_label": "환기 4단",
+    "ac_label": "냉방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H1",
+    "con": ["CCMD0101010199180", "CCMD0201010199180", "CCMD0301010199180"]
+  },
+  {
+    "row_index": 183,
+    "vent_label": "환기 6단",
+    "ac_label": "냉방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101010299260", "CCMD0201010299260", "CCMD0301010299260"]
+  },
+  {
+    "row_index": 184,
+    "vent_label": "환기 6단",
+    "ac_label": "냉방 중풍 22도",
+    "vent": "CCTLA0UXSXPXW6E1H1",
+    "con": ["CCMD0101010299220", "CCMD0201010299220", "CCMD0301010299220"]
+  },
+  {
+    "row_index": 185,
+    "vent_label": "공기청정 4단",
+    "ac_label": "냉방 약풍 18도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101010199180", "CCMD0201010199180", "CCMD0301010199180"]
+  },
+  {
+    "row_index": 186,
+    "vent_label": "공기청정 4단",
+    "ac_label": "냉방 약풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101010199260", "CCMD0201010199260", "CCMD0301010199260"]
+  },
+  {
+    "row_index": 187,
+    "vent_label": "공기청정 4단",
+    "ac_label": "냉방 약풍 22도",
+    "vent": "CCTLA0UXSXPXW4E1H2",
+    "con": ["CCMD0101010199220", "CCMD0201010199220", "CCMD0301010199220"]
+  },
+  {
+    "row_index": 188,
+    "vent_label": "바이패스 4단",
+    "ac_label": "냉방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW4E1H3",
+    "con": ["CCMD0101010299260", "CCMD0201010299260", "CCMD0301010299260"]
+  },
+  {
+    "row_index": 189,
+    "vent_label": "공기청정 6단",
+    "ac_label": "냉방 중풍 18도",
+    "vent": "CCTLA0UXSXPXW6E1H2",
+    "con": ["CCMD0101010299180", "CCMD0201010299180", "CCMD0301010299180"]
+  },
+  {
+    "row_index": 190,
+    "vent_label": "바이패스 6단",
+    "ac_label": "냉방 중풍 26도",
+    "vent": "CCTLA0UXSXPXW6E1H3",
+    "con": ["CCMD0101010299260", "CCMD0201010299260", "CCMD0301010299260"]
+  }
+]

@@ -1,0 +1,302 @@
+@charset "utf-8";
+
+/* CSS Document */
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  background: transparent;
+  font-family: "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", 돋움, dotum,
+    sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 12px;
+  text-align: left;
+  font-weight: normal;
+}
+body {
+  line-height: 1;
+  color: #444;
+  max-width: 1920px;
+  max-height: 1080px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+body {
+  scrollbar-face-color: #e0e0e0;
+  scrollbar-track-color: #fff;
+  scrollbar-arrow-color: none;
+  scrollbar-highlight-color: #e0e0e0;
+  scrollbar-3dlight-color: none;
+  scrollbar-shadow-color: #e0e0e0;
+  scrollbar-darkshadow-color: none;
+}
+ul li {
+  list-style: none;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+.skip,
+legend,
+caption {
+  display: none;
+}
+nav ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  text-decoration: none;
+  background: transparent;
+  color: #444;
+}
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+del {
+  text-decoration: line-through;
+}
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* change border colour to suit your needs */
+hr {
+  display: none;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+input,
+select,
+textarea,
+button,
+img {
+  vertical-align: middle;
+}
+/*margin*/
+.mT3 {
+  margin-top: 3px;
+}
+.mT5 {
+  margin-top: 5px;
+}
+.mT10 {
+  margin-top: 10px;
+}
+.mT15 {
+  margin-top: 15px;
+}
+.mT20 {
+  margin-top: 20px;
+}
+.mT30 {
+  margin-top: 30px;
+}
+.mT50 {
+  margin-top: 50px;
+}
+
+.mL3 {
+  margin-left: 3px;
+}
+.mL5 {
+  margin-left: 5px;
+}
+.mL8 {
+  margin-left: 8px;
+}
+.mL10 {
+  margin-left: 10px;
+}
+.mL15 {
+  margin-left: 15px;
+}
+.mL25 {
+  margin-left: 25px;
+}
+
+.mB5 {
+  margin-bottom: 5px;
+}
+.mB10 {
+  margin-bottom: 10px;
+}
+.mB20 {
+  margin-bottom: 20px;
+}
+
+.mR3 {
+  margin-right: 3px;
+}
+.mR5 {
+  margin-right: 5px;
+}
+.mR8 {
+  margin-right: 8px;
+}
+.mR12 {
+  margin-right: 12px;
+}
+
+/*padding*/
+.pR46 {
+  padding-right: 46px;
+}
+.pL46 {
+  padding-left: 46px;
+}
+.pR36 {
+  padding-right: 36px;
+}
+.pL36 {
+  padding-left: 36px;
+}
+
+/*point color*/
+.point_blue {
+  color: #0a76e2;
+}
+.point_green {
+  color: #14e08a;
+}
+
+::-webkit-scrollbar {
+  width: 8px; /*0421 css 수정*/
+  height: 8px; /*0421 css 수정*/
+} /* 스크롤 바 */
+
+::-webkit-scrollbar-track {
+  background-color: #abb1b6;
+} /* 스크롤 바 밑의 배경 */
+
+::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 10px;
+} /* 실질적 스크롤 바 */
+
+::-webkit-scrollbar-thumb:active {
+  background: #808080;
+} /* 실질적 스크롤 바를 클릭할 때 */
+
+::-webkit-scrollbar-button {
+  display: none;
+} /* 스크롤 바 상 하단 버튼 */

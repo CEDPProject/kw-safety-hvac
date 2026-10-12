@@ -1,0 +1,6 @@
+{
+  "watch": ["src/**/*"],
+  "ext": "ts,js",
+  "ignore": ["src/views/*.ejs"],
+  "exec": "ts-node-dev --no-notify --exit-child ./src/index.ts"
+}

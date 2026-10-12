@@ -1,0 +1,197 @@
+pipeline {
+  agent {
+    kubernetes {
+      yaml '''
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: git
+    image: alpine/git
+    command:
+    - sleep
+    args:
+    - infinity
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:debug
+    command:
+    - sleep
+    args:
+    - infinity
+    volumeMounts:
+    - name: registry-credentials
+      mountPath: /kaniko/.docker
+  volumes:
+  - name: registry-credentials
+    secret:
+      secretName: regcred
+      items:
+      - key: .dockerconfigjson
+        path: config.json
+'''
+    }
+  }
+    stages{
+    stage('Build & Tag & Push Docker Image') {
+      steps {
+        container('kaniko') {
+			slackSend (color: 'good', message: "${currentBuild.fullDisplayName} 빌드 시작 ", channel: "C09LBQABKGA") 
+        	git branch: 'main',credentialsId: 'gitlabcred', url: 'http://211.219.114.46/internal/iitp-clim-env.git'
+        	sh 'executor --context=dir://$WORKSPACE --skip-tls-verify --destination=kwall1.kweather.co.kr:35000/iitp-climenv-safety:${BUILD_NUMBER}p --destination=harbor-reg.kweather.co.kr:30443/kwall/iitp-climenv-safety:${BUILD_NUMBER}p'
+        }
+      }
+    }
+
+    stage('Update K8s Manifests & Push') {
+      steps {
+        container('git') {
+        	git branch: 'main', credentialsId: 'gitlabcred', url: "http://211.219.114.46/k8s/kwall-internal-prod.git"
+        	sh "git config --global --add safe.directory ${workspace}"
+        	sh "git config --global user.name jenkins"
+        	sh "git config --global user.email inhoo.jung@kweather.co.kr"
+        	sh 'sed -i "s/image:.*/image: kwall1:35000\\/iitp-climenv-safety:${BUILD_NUMBER}p/g" iitp-climenv-safety/deployment.yaml'
+        	sh 'git add iitp-climenv-safety/deployment.yaml'
+        	sh 'git commit -m "[GitOps]Jenkins Build Number Edit - ${BUILD_NUMBER}"'
+        	withCredentials([gitUsernamePassword(credentialsId: 'gitlabcred', gitToolName: 'Default')]) {
+            sh 'git push --set-upstream origin main'
+          }
+
+        }
+      }
+    }
+	}
+  
+post {
+
+   failure {
+
+	script{
+	
+
+		def blocks =   [
+			[
+				"type": "section",
+				"text": [
+					"type": "mrkdwn",
+					"text": ":x:*${JOB_NAME} ${BUILD_NUMBER} 컨테이너 이미지 빌드에 실패 하였습니다*."
+				]
+			],	
+
+			[
+				"type": "divider"
+			], 
+
+	
+		[
+				"type": "section",
+				"fields": [
+					[
+						"type": "mrkdwn",
+						"text": "작업 명 : *${JOB_NAME}*",
+
+					],
+					[
+						"type": "mrkdwn",
+						"text": "빌드 번호 *${BUILD_NUMBER}*",
+
+					],
+					[
+						"type": "mrkdwn",
+						"text": "빌드 상세 정보 <${BUILD_URL}|확인>",
+
+					],
+					[
+						"type": "mrkdwn",
+						"text": "Gitlab 정보 <${GIT_URL}|확인>",
+
+					]
+				]
+			]	
+
+		]
+
+	def attachments = [
+		[
+		
+			blocks: blocks,
+			color: '#ff0000'
+		]
+		]
+
+	
+	slackSend(attachments: attachments,channel: "C09LBQABKGA")
+	//   slackSend( color: 'warning',  blocks: blocks, channel: "C09LBQABKGA")  
+    }
+
+        }
+
+
+    success {
+		slackSend (color: 'good', message: "${currentBuild.fullDisplayName} 빌드가 완료되었습니다. ", channel: "C09LBQABKGA") 
+		script{
+
+		def blocks =   [
+			[
+				"type": "section",
+				"text": [
+					"type": "mrkdwn",
+					"text": ":white_check_mark:*${JOB_NAME} ${BUILD_NUMBER} 컨테이너 이미지 빌드가 완료되었습니다*."
+				]
+			],	
+
+			
+			[
+				"type": "section",
+				"text": [
+					"type": "mrkdwn",
+					"text": "생성된 이미지를 운영에 적용 요청 하시겠습니까?"
+				]
+			],	
+			[
+				"type": "actions",
+				"elements": [
+					[
+						"type": "button",
+						"text": [
+							"type": "plain_text",
+							"text": "요청하기",
+							"emoji": true
+						],
+						"value": "request_${JOB_NAME}_${BUILD_NUMBER}",
+						"style": "primary",
+						"action_id": "approve",
+
+
+
+						"confirm": [   
+							"title": [
+								"type": "plain_text",
+								"text": "정말 요청합니까?"
+					],
+							"text": [
+								"type": "mrkdwn",
+								"text": "*${JOB_NAME}*  *${BUILD_NUMBER}* 번 이미지의 운영 적용을 요청합니다. "
+					],
+							"confirm": [
+								"type": "plain_text",
+								"text": "승인합니다"
+					],
+							"deny": [
+								"type": "plain_text",
+								"text": "취소합니다"
+					]]
+
+				]
+			]
+			]
+		]
+
+	
+	
+	  // slackSend( color: 'good',  blocks: blocks, channel: "C09LBQABKGA")  
+    }
+
+
+}}
+
+}

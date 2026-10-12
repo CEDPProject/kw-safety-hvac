@@ -1,0 +1,126 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+  />
+
+  <title>안전공조시스템</title>
+
+  <meta name="description" content="" />
+  <meta http-equiv="Content-Script-Type" content="text/css" />
+  <link rel="stylesheet" type="text/css" href="/info/common.css" />
+  <link rel="stylesheet" type="text/css" href="/info/ui.css" />
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+  />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin="crossorigin"
+  />
+
+  <!-- Flatpickr -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
+
+  <!-- DataTables 2.0.3 + Buttons 3.0.1 (버전 일치) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.dataTables.min.css"
+  />
+
+  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.0.1/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Moment.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/utc.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/timezone.js"></script>
+
+  <!-- amcharts4 -->
+  <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+  <script src="https://www.amcharts.com/lib/4/themes/dark.js"></script>
+  <script src="https://www.amcharts.com/lib/4/themes/kelly.js"></script>
+  <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+  <script>
+    dayjs.extend(window.dayjs_plugin_utc);
+  </script>
+  <script>
+    dayjs.extend(window.dayjs_plugin_timezone);
+  </script>
+  <script src="/info/head.js" defer></script>
+  <style>
+    .bgGray1 {
+      padding: 10px;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+    /* .bgGray1 tr th {
+      padding: 50px !important;
+    } */
+    .dt-buttons {
+      padding: 10px 0;
+    }
+    .align-items-right {
+      float: right;
+    }
+    .align-items-left {
+      float: left;
+    }
+    .btn-primary {
+      height: 40px;
+    }
+    .btn-primary.btn.csv-btn {
+      background-color: #0d6efd;
+      border-color: #0d6efd;
+      color: #fff;
+    }
+    .btn-primary.btn.link-btn {
+      background-color: #0d6efd;
+      border-color: #0d6efd;
+      color: #fff;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<header>
+  <h1>
+    <a href=""
+      ><img src="/info/icon_menu.png" width="22" height="22" alt="" /></a
+    ><span style="color: #fff"
+      >인류세의 기후 테크 역량 강화를 위한 기후 환경 데이터 구축 처리 플랫폼 |
+      에너지 최적화된 안전공조시스템 데이터 조회</span
+    >
+  </h1>
+  <h1>
+    <span id="time" style="color: #fff"></span>
+  </h1>
+</header>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <%- include("head.ejs") -%>
+  <body>
+    <div class="content-wrapper" style="margin-left: 0px !important">
+      <section class="content">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <form role="form">
+                <div class="card-body">
+                  <div
+                    class="row"
+                    style="
+                      border-top: 3px solid #aaa;
+                      height: 35px;
+                      line-height: 35px;
+                    "
+                  >
+                    <div
+                      class="col-2"
+                      style="
+                        background-color: #e6edf9;
+                        border-bottom: 1px solid #aaa;
+                      "
+                    >
+                      공간명
+                    </div>
+                    <div
+                      class="col-2"
+                      id="txtSerialNum"
+                      style="border-bottom: 1px solid #aaa"
+                    >
+                      <select id="iaqList">
+                        <% iaqList.forEach(function(device) { %>
+                        <option value="<%= device.serial_num %>">
+                          <%= device.station_name %> (<%= device.serial_num %>)
+                        </option>
+                        <% }); %>
+                      </select>
+                    </div>
+                    <div
+                      class="col-2"
+                      id="txtProductDt"
+                      style="border-bottom: 1px solid #aaa"
+                    ></div>
+                    <div
+                      class="col"
+                      style="border-bottom: 1px solid #aaa; text-align: right"
+                    >
+                      <a href="/control" class="btn btn-sm btn-primary"
+                        >제어 페이지</a
+                      >
+                    </div>
+                  </div>
+                  <h1 style="font-weight: 800">측정 데이터 조회</h1>
+                  <div class="form-group mt20;" style="display: flex">
+                    <div style="flex: 0.5">
+                      <button id="prevDay" type="button">‹</button>
+                      <input
+                        type="text"
+                        class="form-control d-inline-block"
+                        name="chartDate"
+                        id="chartDate"
+                        placeholder="시작일자 클릭 후 선택"
+                        style="width: 150px; vertical-align: middle"
+                      />
+                      <button id="nextDay" type="button">›</button>
+                    </div>
+                    <div id="chartTypes" style="display: inline-block">
+                      <div>
+                        <ul>
+                          <li>
+                            <span>실내공기측정기 - </span>
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="pm10"
+                              />실내미세먼지</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="pm25"
+                              />실내초미세먼지</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="co2"
+                              />실내이산화탄소</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="voc"
+                              />실내휘발성유기화합물</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="temp"
+                              />실내온도</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="humi"
+                              />실내습도</label
+                            >
+                          </li>
+                          <li>
+                            <span>실외공기측정기 - </span>
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="outdoorPm10"
+                              />실외미세먼지</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="outdoorPm25"
+                              />실외초미세먼지</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="outdoorCo2"
+                              />실외이산화탄소</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="outdoorTemp"
+                              />실외온도</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="outdoorHumi"
+                              />실외습도</label
+                            >
+                          </li>
+                          <li>
+                            <span>환기 - </span>
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="ventPower"
+                              />환기전원</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="ventAirvolume"
+                              />환기풍량</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="ventMode"
+                              />환기운전모드</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="ventWatt"
+                              />환기유효전력</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="ventWattHour"
+                              />환기누적전력량</label
+                            >
+                          </li>
+                          <li>
+                            <span>냉난방기 - </span>
+
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="conPower"
+                              />
+
+                              냉난방전원</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="conMode"
+                              />
+
+                              냉난방운전모드</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="conAirvolume"
+                              />
+
+                              냉난방풍량
+                            </label>
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="conSetTemp"
+                              />냉난방설정온도</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="conTemp"
+                              />냉난방온도</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="conWattHour"
+                              />냉난방누적전력량</label
+                            >
+                            <label for="chartType">
+                              <input
+                                type="checkbox"
+                                name="chartType"
+                                value="conWatt"
+                              />냉난방유효전력</label
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="form-group mt10"
+                    id="chartdiv"
+                    style="height: 500px"
+                  ></div>
+
+                  <div class="form-group mt10">
+                    <h5
+                      style="
+                        display: inline-block;
+                        margin-bottom: 0.25rem;
+                        vertical-align: middle;
+                      "
+                      id="tableTitle"
+                    >
+                      검색 결과
+                    </h5>
+                    <div class="d-flex align-items-right">
+                      <input
+                        type="text"
+                        class="form-control d-inline-block flatpickr-input"
+                        name="startDt"
+                        id="startDt"
+                        placeholder="시작일자 클릭 후 선택"
+                        style="width: 150px; vertical-align: middle"
+                      />
+                      ~
+                      <input
+                        type="text"
+                        class="form-control d-inline-block flatpickr-input"
+                        name="endDt"
+                        id="endDt"
+                        placeholder="종료일자 클릭 후 선택"
+                        style="width: 150px; vertical-align: middle"
+                      />
+                      <input
+                        type="button"
+                        class="btn btn-primary ml3 mr10"
+                        style="min-width: 100px"
+                        id="modalSearchBtn"
+                        value="검 색"
+                      />
+                    </div>
+                    <table
+                      id="popTable"
+                      class="table table-bordered table-hover text-center display"
+                      style="margin-top: 20px !important"
+                    >
+                      <thead class="bgGray1">
+                        <tr>
+                          <th class="bgGray1" style="width: 185px">
+                            데이터 시간
+                          </th>
+                          <th class="bgGray1">실내미세먼지(㎍/㎥)</th>
+                          <th class="bgGray1">실내초미세먼지(㎍/㎥)</th>
+                          <th class="bgGray1">실내이산화탄소(ppm)</th>
+                          <th class="bgGray1">실내휘발성유기화합물(ppb)</th>
+                          <th class="bgGray1">실내온도(℃)</th>
+                          <th class="bgGray1">실내습도(%)</th>
+                          <th class="bgGray1">실외미세먼지(㎍/㎥)</th>
+                          <th class="bgGray1">실외초미세먼지(㎍/㎥)</th>
+                          <th class="bgGray1">실외온도(℃)</th>
+                          <th class="bgGray1">실외습도(%)</th>
+                          <th class="bgGray1">환기전원</th>
+                          <th class="bgGray1">환기풍량</th>
+                          <th class="bgGray1">환기운전모드</th>
+                          <th class="bgGray1">환기누적전력량(Wh)</th>
+                          <th class="bgGray1">환기유효전력(W)</th>
+                          <th class="bgGray1">냉난방전원</th>
+                          <th class="bgGray1">냉난방운전모드</th>
+                          <th class="bgGray1">냉난방풍량</th>
+                          <th class="bgGray1">냉난방설정온도(℃)</th>
+                          <th class="bgGray1">냉난방누적전력량(Wh)</th>
+                          <th class="bgGray1">냉난방유효전력(W)</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tableBody">
+                        <% JSON.parse(iaqData2).forEach(function(data) { %>
+                        <tr>
+                          <td><%= data[0] %></td>
+                          <td>
+                            <%= Array.isArray(data[1].pm10) &&
+                            data[1].pm10.length > 0 ? data[1].pm10[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].pm25) &&
+                            data[1].pm25.length > 0 ? data[1].pm25[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].co2) && data[1].co2.length
+                            > 0 ? data[1].co2[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].voc) && data[1].voc.length
+                            > 0 ? data[1].voc[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].temp) &&
+                            data[1].temp.length > 0 ? data[1].temp[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].humi) &&
+                            data[1].humi.length > 0 ? data[1].humi[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].outdoorPm10) &&
+                            data[1].outdoorPm10.length > 0 ?
+                            data[1].outdoorPm10[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].outdoorPm25) &&
+                            data[1].outdoorPm25.length > 0 ?
+                            data[1].outdoorPm25[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].outdoorTemp) &&
+                            data[1].outdoorTemp.length > 0 ?
+                            data[1].outdoorTemp[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].outdoorHumi) &&
+                            data[1].outdoorHumi.length > 0 ?
+                            data[1].outdoorHumi[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].ventPower) &&
+                            data[1].ventPower.length > 0 ? data[1].ventPower[1]
+                            : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].ventAirvolume) &&
+                            data[1].ventAirvolume.length > 0 ?
+                            data[1].ventAirvolume[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].ventMode) &&
+                            data[1].ventMode.length > 0 ? data[1].ventMode[1] :
+                            '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].ventWattHour) &&
+                            data[1].ventWattHour.length > 0 ?
+                            data[1].ventWattHour[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].ventWatt) &&
+                            data[1].ventWatt.length > 0 ? data[1].ventWatt[1] :
+                            '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].conPower) &&
+                            data[1].conPower.length > 0 ? data[1].conPower[1] :
+                            '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].conMode) &&
+                            data[1].conMode.length > 0 ? data[1].conMode[1] :
+                            '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].conAirvolume) &&
+                            data[1].conAirvolume.length > 0 ?
+                            data[1].conAirvolume[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].conSetTemp) &&
+                            data[1].conSetTemp.length > 0 ?
+                            data[1].conSetTemp[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].conWattHour) &&
+                            data[1].conWattHour.length > 0 ?
+                            data[1].conWattHour[1] : '-' %>
+                          </td>
+                          <td>
+                            <%= Array.isArray(data[1].conWatt) &&
+                            data[1].conWatt.length > 0 ? data[1].conWatt[1] :
+                            '-' %>
+                          </td>
+                        </tr>
+                        <% }); %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="/info/info.js"></script>
+    <script type="module">
+      import { loadChartData } from "/info/info.js";
+      // 서버에서 전달된 Map 데이터를 배열로 변환한 후 사용
+      const iaqData2 = <%- iaqData2 %>
+
+      // iaqData2는 이제 배열로 변환된 상태입니다.
+      loadChartData(iaqData2);
+    </script>
+  </body>
+</html>

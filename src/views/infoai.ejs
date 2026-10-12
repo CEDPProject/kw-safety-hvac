@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ko" >
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1, shrink-to-fit=no" />
+  <meta name="format-detection" content="telephone=no, address=no, email=no" />
+  <meta name="title" content="default page" />
+  <meta name="keywords" content="default page" />
+  <meta name="description" content="default page" />
+  <meta name="url" content="." />
+  <meta name="image" content="/img/og_img.jpg" />
+  <meta property="og:title" content="default page" />
+  <meta property="og:keywords" content="default page" />
+  <meta property="og:description" content="default page" />
+  <meta property="og:url" content="." />
+  <meta property="og:image" content="/img/og_img.jpg" />
+  <meta property="og:type" content="website" />
+  <title>안전공조시스템</title>
+  <!--style-->
+  <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+
+  <link rel="stylesheet" href="/default.css" />
+  <link rel="stylesheet" href="/content.css" />
+
+  <!--script-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="/lib/ui.min.js"></script>
+  <script src="/lib/core.js"></script>
+  <script src="/lib/charts.js"></script>
+  <script src="/lib/ko_KR.js"></script>
+  <style>
+    #main {
+      min-height: 700px;
+    }
+    /* DataTables 버튼 스타일 커스터마이징 - 기존 버튼 스타일과 동일하게 */
+    .dt-buttons {
+      margin-bottom: 10px;
+      float: right;
+    }
+    .dt-button {
+      background-color: #17a2b8 !important;
+      color: white !important;
+      border: none !important;
+      padding: 6px 12px !important;
+      border-radius: 4px !important;
+      font-size: 13px !important;
+      cursor: pointer !important;
+      transition: background-color 0.3s !important;
+      display: inline-block !important;
+      text-decoration: none !important;
+      font-weight: normal !important;
+      line-height: 1.5 !important;
+      vertical-align: middle !important;
+      margin-left: 5px !important;
+    }
+    .dt-button:hover {
+      background-color: #138496 !important;
+      color: white !important;
+      text-decoration: none !important;
+    }
+    .dt-button:active,
+    .dt-button:focus {
+      background-color: #117a8b !important;
+      color: white !important;
+      outline: none !important;
+      box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5) !important;
+    }
+    /* btn_info 클래스 스타일 적용 */
+    .dt-button.btn_info {
+      background-color: #17a2b8 !important;
+    }
+    .dt-button.btn_info:hover {
+      background-color: #138496 !important;
+    }
+  </style>
+  <script type="text/javascript">
+    const deviceList = <%- JSON.stringify(deviceList) %>;
+    console.log(deviceList);
+    $(document).ready(function () {
+      const formatDate = () => {
+        const date = new Date()
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // 0부터 시작하므로 +1
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+
+        return `${year}년 ${month}월 ${day}일 ${hours}:${minutes}`;
+      };
+
+      const now = new Date();
+
+      $("#header_time").html(formatDate());
+
+      // deviceList를 기반으로 selectBox 생성
+      const deviceSelector = $("#deviceSelector");
+      deviceSelector.empty();
+
+      if (deviceList && Array.isArray(deviceList)) {
+        deviceList.forEach(function(item) {
+          if (item.sensor_list && item.sensor_list.length > 0) {
+            // sensor_list에서 station_name 추출 (첫 번째 항목에서)
+            const stationName = item.sensor_list[0].station_name;
+            
+            // ventSerialNum과 conSerialNum 추출
+            let ventSerialNum = '';
+            let conSerialNum = '';
+            let ventDeviceIdx = '';
+            let conDeviceIdx = '';
+
+            item.sensor_list.forEach(function(sensor) {
+              if (sensor.ventSerialNum) {
+                ventSerialNum = sensor.ventSerialNum;
+                ventDeviceIdx = sensor.vent_device_idx;
+              }
+              if (sensor.conSerialNum) {
+                conSerialNum = sensor.conSerialNum;
+                conDeviceIdx = sensor.vent_device_idx;
+              }
+            });
+
+            // option 생성
+            const option = $('<option></option>')
+              .attr('value', item.iaq_device_idx)
+              .attr('data-vent-serial-num', ventSerialNum)
+              .attr('data-con-serial-num', conSerialNum)
+              .attr('data-vent-device-idx', ventDeviceIdx)
+              .attr('data-con-device-idx', conDeviceIdx)
+              .attr('data-iaq-device-idx', item.iaq_device_idx)
+              .text(stationName);
+
+            deviceSelector.append(option);
+          }
+        });
+
+        // 첫 번째 옵션 선택
+        if (deviceSelector.find('option').length > 0) {
+          deviceSelector.val(deviceSelector.find('option').first().val());
+        }
+      }
+
+      // 조회 함수 (재사용 가능하도록 분리)
+      function performSearch() {
+        const selectedOption = $("#deviceSelector option:selected");
+        const searchDateTime = $("#searchDateTime").val();
+        
+        if (!searchDateTime) {
+          alert("날짜/시간을 선택해주세요.");
+          return;
+        }
+
+        if (!selectedOption.length) {
+          alert("스테이션을 선택해주세요.");
+          return;
+        }
+
+        // 날짜 형식 변환: "YYYY-MM-DDTHH:mm" (datetime-local) -> "YYYY-MM-DD HH:mm:ss"
+        const dateTimeParts = searchDateTime.split('T');
+        const datePart = dateTimeParts[0]; // "YYYY-MM-DD"
+        const timePart = dateTimeParts[1] || '00:00'; // "HH:mm"
+        const formattedDateTime = datePart + ' ' + timePart + ':00'; // "YYYY-MM-DD HH:mm:ss"
+
+        const requestData = {
+          startDate: formattedDateTime,
+          ventSerialNum: selectedOption.attr('data-vent-serial-num'),
+          conSerialNum: selectedOption.attr('data-con-serial-num')
+        };
+
+        // POST 요청
+        $.ajax({
+          url: '/infoai/chartdata',
+          type: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify(requestData),
+          success: function(response) {
+            console.log('Success:', response);
+            drawChart(response);
+          },
+          error: function(xhr, status, error) {
+            console.error('Error:', error);
+            alert('데이터 조회 중 오류가 발생했습니다.');
+          }
+        });
+      }
+
+      // 기본 HTML5 datetime-local input 초기화
+      const nowForDateTime = new Date();
+      // datetime-local 형식: YYYY-MM-DDTHH:mm
+      const currentDateTime = nowForDateTime.getFullYear() + '-' + 
+        String(nowForDateTime.getMonth() + 1).padStart(2, '0') + '-' + 
+        String(nowForDateTime.getDate()).padStart(2, '0') + 'T' + 
+        String(nowForDateTime.getHours()).padStart(2, '0') + ':' + 
+        String(nowForDateTime.getMinutes()).padStart(2, '0');
+
+      // 현재 시간으로 설정
+      $("#searchDateTime").val(currentDateTime);
+      
+      // 최대 날짜를 오늘로 제한
+      const maxDateTime = nowForDateTime.getFullYear() + '-' + 
+        String(nowForDateTime.getMonth() + 1).padStart(2, '0') + '-' + 
+        String(nowForDateTime.getDate()).padStart(2, '0') + 'T' + 
+        String(nowForDateTime.getHours()).padStart(2, '0') + ':' + 
+        String(nowForDateTime.getMinutes()).padStart(2, '0');
+      $("#searchDateTime").attr('max', maxDateTime);
+
+      // 조회 버튼 클릭 이벤트
+      $("#graphSearch").click(function(e) {
+        e.preventDefault();
+        performSearch();
+      });
+
+      // deviceSelector 변경 이벤트
+      $("#deviceSelector").on('change', function() {
+        performSearch();
+      });
+
+      // 페이지 로드 시 자동 조회
+      if (deviceList && Array.isArray(deviceList) && deviceList.length > 0) {
+        // deviceSelector가 채워진 후 조회 실행
+        setTimeout(function() {
+          performSearch();
+        }, 100);
+      }
+
+      // 체크박스 이벤트 핸들러 설정 (한 번만 등록)
+      function setupCheckboxHandlers() {
+        // 기존 이벤트 제거 후 재등록
+        $("#chk_ventWatt, #chk_ventPredWatt, #chk_conWatt, #chk_conPredWatt, #chk_totalWatt, #chk_totalPredWatt").off('change');
+        
+        $("#chk_ventWatt").on('change', function() {
+          if (window.chartSeries && window.chartSeries.ventWatt) {
+            if (this.checked) {
+              window.chartSeries.ventWatt.show();
+            } else {
+              window.chartSeries.ventWatt.hide();
+            }
+          }
+        });
+        
+        $("#chk_ventPredWatt").on('change', function() {
+          if (window.chartSeries && window.chartSeries.ventPredWatt) {
+            if (this.checked) {
+              window.chartSeries.ventPredWatt.show();
+            } else {
+              window.chartSeries.ventPredWatt.hide();
+            }
+          }
+        });
+        
+        $("#chk_conWatt").on('change', function() {
+          if (window.chartSeries && window.chartSeries.conWatt) {
+            if (this.checked) {
+              window.chartSeries.conWatt.show();
+            } else {
+              window.chartSeries.conWatt.hide();
+            }
+          }
+        });
+        
+        $("#chk_conPredWatt").on('change', function() {
+          if (window.chartSeries && window.chartSeries.conPredWatt) {
+            if (this.checked) {
+              window.chartSeries.conPredWatt.show();
+            } else {
+              window.chartSeries.conPredWatt.hide();
+            }
+          }
+        });
+        
+        $("#chk_totalWatt").on('change', function() {
+          if (window.chartSeries && window.chartSeries.totalWatt) {
+            if (this.checked) {
+              window.chartSeries.totalWatt.show();
+            } else {
+              window.chartSeries.totalWatt.hide();
+            }
+          }
+        });
+        
+        $("#chk_totalPredWatt").on('change', function() {
+          if (window.chartSeries && window.chartSeries.totalPredWatt) {
+            if (this.checked) {
+              window.chartSeries.totalPredWatt.show();
+            } else {
+              window.chartSeries.totalPredWatt.hide();
+            }
+          }
+        });
+      }
+
+      // 차트 그리기 함수
+      function drawChart(data) {
+        // 기존 차트가 있으면 제거
+        if (window.chart) {
+          window.chart.dispose();
+          window.chartSeries = {};
+        }
+
+        console.log('Received data:', data);
+
+        // 데이터 변환 및 처리
+        const ventWattData = data.ventWattData || [];
+        const ventPredWattData = data.ventPredWattData || [];
+        const conWattData = data.conWattData || [];
+        const conPredWattData = data.conPredWattData || [];
+
+        console.log('ventWattData:', ventWattData);
+        console.log('ventPredWattData:', ventPredWattData);
+        console.log('conWattData:', conWattData);
+        console.log('conPredWattData:', conPredWattData);
+
+        // 시간별 데이터 맵 생성 (분단위로 통합)
+        const timeMap = {};
+    
+        // 환기실측유효전력 처리
+        if (Array.isArray(ventWattData) && ventWattData.length > 0) {
+          ventWattData.forEach(function(item) {
+            console.log('Tester2 :', item);
+            if (item && item.time && item.value !== undefined) {
+              const time = item.time; // "20251124154300"
+              const date = convertTimeToDate(time);
+              if (!timeMap[time]) {
+                timeMap[time] = { date: date };
+              }
+              
+              timeMap[time].ventWatt = item.value || 0;
+              console.log('Tester3 :', timeMap[time].ventWatt);
+            }
+          });
+        } else {
+          console.warn('ventWattData is empty or not an array:', ventWattData);
+        }
+
+        // 환기예측유효전력 처리
+        if (Array.isArray(ventPredWattData) && ventPredWattData.length > 0) {
+          ventPredWattData.forEach(function(item) {
+            if (item && item.time && item.value !== undefined) {
+              const time = item.time; // "20251124100000"
+              const date = convertTimeToDate(time);
+              if (!timeMap[time]) {
+                timeMap[time] = { date: date };
+              }
+              timeMap[time].ventPredWatt = item.value || 0;
+            }
+          });
+        } else {
+          console.warn('ventPredWattData is empty or not an array:', ventPredWattData);
+        }
+
+        // 냉난방실측유효전력 처리
+        if (Array.isArray(conWattData) && conWattData.length > 0) {
+          conWattData.forEach(function(item) {
+            if (item && item.time && item.value !== undefined) {
+              const time = item.time;
+              const date = convertTimeToDate(time);
+              if (!timeMap[time]) {
+                timeMap[time] = { date: date };
+              }
+              timeMap[time].conWatt = item.value || 0;
+            }
+          });
+        } else {
+          console.warn('conWattData is empty or not an array:', conWattData);
+        }
+
+        // 냉난방예측유효전력 처리
+        if (Array.isArray(conPredWattData) && conPredWattData.length > 0) {
+          conPredWattData.forEach(function(item) {
+            if (item && item.time && item.value !== undefined) {
+              const time = item.time;
+              const date = convertTimeToDate(time);
+              if (!timeMap[time]) {
+                timeMap[time] = { date: date };
+              }
+              timeMap[time].conPredWatt = item.value || 0;
+            }
+          });
+        } else {
+          console.warn('conPredWattData is empty or not an array:', conPredWattData);
+        }
+
+        // 전체실측유효전력 및 전체예측유효전력 계산
+        // 모든 데이터 포인트에 기본값 설정 (undefined 방지)
+        Object.keys(timeMap).forEach(function(time) {
+          const item = timeMap[time];
+          console.log('Tester :', item);
+          // undefined를 0으로 설정하여 차트에 표시되도록 함
+          if (item.ventWatt === undefined) item.ventWatt = null;
+          if (item.ventPredWatt === undefined) item.ventPredWatt = null;
+          if (item.conWatt === undefined) item.conWatt = null;
+          if (item.conPredWatt === undefined) item.conPredWatt = null;
+          
+          item.totalWatt = (item.ventWatt || 0) + (item.conWatt || 0);
+          item.totalPredWatt = (item.ventPredWatt || 0) + (item.conPredWatt || 0);
+        });
+
+        // 배열로 변환 및 정렬
+        const chartData = Object.keys(timeMap)
+          .map(function(time) {
+            return timeMap[time];
+          })
+          .sort(function(a, b) {
+            return a.date.getTime() - b.date.getTime();
+          });
+
+        console.log('Chart data:', chartData);
+        console.log('Chart data length:', chartData.length);
+        if (chartData.length > 0) {
+          console.log('First item:', chartData[0]);
+          console.log('Last item:', chartData[chartData.length - 1]);
+        }
+
+        // 데이터 테이블 생성
+        drawDataTable(chartData);
+
+        // amCharts 차트 생성
+        am4core.ready(function() {
+          window.chart = am4core.create("graphChart", am4charts.XYChart);
+          window.chart.data = chartData;
+          window.chart.language.locale = am4lang_ko_KR;
+          window.chart.dateFormatter.inputDateFormat = "yyyyMMddHHmmss";
+
+          // X축 (날짜/시간)
+          var dateAxis = window.chart.xAxes.push(new am4charts.DateAxis());
+          dateAxis.renderer.grid.template.location = 0;
+          dateAxis.startLocation = 0.3;
+          dateAxis.endLocation = 0.7;
+          dateAxis.renderer.minGridDistance = 60;
+          dateAxis.dateFormats.setKey("minute", "HH:mm");
+          dateAxis.tooltipDateFormat = "MM월 dd일 HH:mm";
+          dateAxis.title.text = "시간(분)";
+
+          // Y축
+          var valueAxis = window.chart.yAxes.push(new am4charts.ValueAxis());
+          valueAxis.title.text = "전력 (W)";
+
+          // 범례
+          window.chart.legend = new am4charts.Legend();
+          window.chart.legend.position = "top";
+
+          // 색상 정의
+          const colors = {
+            ventWatt: "#4595FF",      // 파란색 - 환기실측유효전력
+            ventPredWatt: "#5ABEF5",  // 밝은 파란색 - 환기예측유효전력
+            conWatt: "#FFA800",       // 주황색 - 냉난방실측유효전력
+            conPredWatt: "#FF8C00",  // 다크 오렌지 - 냉난방예측유효전력
+            totalWatt: "#00D27A",    // 녹색 - 전체실측유효전력
+            totalPredWatt: "#32CD32"  // 라임 그린 - 전체예측유효전력
+          };
+
+          // 시리즈 참조 저장용 객체
+          window.chartSeries = {};
+
+          // 시리즈 생성 함수
+          function createSeries(field, name, color) {
+            var series = window.chart.series.push(new am4charts.LineSeries());
+            series.dataFields.valueY = field;
+            series.dataFields.dateX = "date";
+            series.tooltipText = "{name}: {valueY} W";
+            series.name = name;
+            series.strokeWidth = 3;
+            series.minBulletDistance = 15;
+            series.fill = am4core.color(color);
+            series.stroke = am4core.color(color);
+            series.connect = false;
+
+            series.tooltip.background.cornerRadius = 20;
+            series.tooltip.background.strokeOpacity = 0;
+            series.tooltip.pointerOrientation = "vertical";
+            series.tooltip.label.minWidth = 40;
+            series.tooltip.label.minHeight = 40;
+            series.tooltip.label.textAlign = "middle";
+            series.tooltip.label.textValign = "middle";
+            series.tooltip.label.fill = am4core.color(color);
+            series.tooltip.background.strokeWidth = 2;
+            series.tooltip.getFillFromObject = false;
+
+            var bullet = series.bullets.push(new am4charts.CircleBullet());
+            bullet.circle.strokeWidth = 2;
+            bullet.circle.radius = 4;
+            bullet.circle.fill = am4core.color("#fff");
+
+            var bullethover = bullet.states.create("hover");
+            bullethover.properties.scale = 1.3;
+            
+            // 시리즈 참조 저장
+            return series;
+          }
+
+          // 6개 시리즈 생성 및 참조 저장
+          window.chartSeries.ventWatt = createSeries("ventWatt", "환기실측유효전력", colors.ventWatt);
+          window.chartSeries.ventPredWatt = createSeries("ventPredWatt", "환기예측유효전력", colors.ventPredWatt);
+          window.chartSeries.conWatt = createSeries("conWatt", "냉난방실측유효전력", colors.conWatt);
+          window.chartSeries.conPredWatt = createSeries("conPredWatt", "냉난방예측유효전력", colors.conPredWatt);
+          window.chartSeries.totalWatt = createSeries("totalWatt", "전체실측유효전력", colors.totalWatt);
+          window.chartSeries.totalPredWatt = createSeries("totalPredWatt", "전체예측유효전력", colors.totalPredWatt);
+          
+          // 체크박스 상태에 따라 시리즈 표시/숨김 초기화
+          if (!$("#chk_ventWatt").is(':checked')) window.chartSeries.ventWatt.hide();
+          if (!$("#chk_ventPredWatt").is(':checked')) window.chartSeries.ventPredWatt.hide();
+          if (!$("#chk_conWatt").is(':checked')) window.chartSeries.conWatt.hide();
+          if (!$("#chk_conPredWatt").is(':checked')) window.chartSeries.conPredWatt.hide();
+          if (!$("#chk_totalWatt").is(':checked')) window.chartSeries.totalWatt.hide();
+          if (!$("#chk_totalPredWatt").is(':checked')) window.chartSeries.totalPredWatt.hide();
+          
+          // 체크박스 이벤트 핸들러 설정
+          setupCheckboxHandlers();
+
+          // 커서
+          window.chart.cursor = new am4charts.XYCursor();
+        });
+      }
+
+      // 시간 문자열을 Date 객체로 변환
+      function convertTimeToDate(timeStr) {
+        // "20251124110000" -> Date 객체
+        const year = parseInt(timeStr.substring(0, 4));
+        const month = parseInt(timeStr.substring(4, 6)) - 1; // 월은 0부터 시작
+        const day = parseInt(timeStr.substring(6, 8));
+        const hour = parseInt(timeStr.substring(8, 10));
+        const minute = parseInt(timeStr.substring(10, 12)) || 0;
+        const second = parseInt(timeStr.substring(12, 14)) || 0;
+        
+        return new Date(year, month, day, hour, minute, second);
+      }
+
+      // 데이터 테이블 그리기 함수
+      function drawDataTable(chartData) {
+        // 기존 DataTable이 있으면 먼저 제거하여 완전히 초기화
+        if ($.fn.DataTable.isDataTable('#data_table')) {
+          $('#data_table').DataTable().destroy();
+        }
+        
+        const tableBody = $('#data_table tbody');
+        tableBody.empty();
+        
+        // thead도 초기화
+        $('#data_table thead').remove();
+
+        if (!chartData || chartData.length === 0) {
+          $('#data_not').show();
+          $('#data_table').hide();
+          return;
+        }
+
+        $('#data_not').hide();
+        $('#data_table').show();
+
+        // 테이블 헤더 생성 (없으면 생성)
+        if ($('#data_table thead').length === 0) {
+          const thead = $('<thead></thead>');
+          const headerRow = $('<tr></tr>');
+          headerRow.append('<th>시간(분)</th>');
+          headerRow.append('<th>환기실측유효전력<br/>(W)</th>');
+          headerRow.append('<th>환기예측유효전력<br/>(W)</th>');
+          headerRow.append('<th>냉난방실측유효전력<br/>(W)</th>');
+          headerRow.append('<th>냉난방예측유효전력<br/>(W)</th>');
+          headerRow.append('<th>전체실측유효전력<br/>(W)</th>');
+          headerRow.append('<th>전체예측유효전력<br/>(W)</th>');
+          thead.append(headerRow);
+          $('#data_table').prepend(thead);
+        }
+
+        // 데이터 행 생성
+        chartData.forEach(function(item) {
+          const row = $('<tr></tr>');
+          
+          // 시간 포맷팅 (YYYY-MM-DD HH:mm)
+          const date = item.date;
+          const timeStr = date.getFullYear() + '-' + 
+            String(date.getMonth() + 1).padStart(2, '0') + '-' + 
+            String(date.getDate()).padStart(2, '0') + ' ' + 
+            String(date.getHours()).padStart(2, '0') + ':' + 
+            String(date.getMinutes()).padStart(2, '0');
+          
+          row.append('<td>' + timeStr + '</td>');
+          row.append('<td>' + (item.ventWatt !== null && item.ventWatt !== undefined ? Number(item.ventWatt).toFixed(2) : '-') + '</td>');
+          row.append('<td>' + (item.ventPredWatt !== null && item.ventPredWatt !== undefined ? Number(item.ventPredWatt).toFixed(2) : '-') + '</td>');
+          row.append('<td>' + (item.conWatt !== null && item.conWatt !== undefined ? Number(item.conWatt).toFixed(2) : '-') + '</td>');
+          row.append('<td>' + (item.conPredWatt !== null && item.conPredWatt !== undefined ? Number(item.conPredWatt).toFixed(2) : '-') + '</td>');
+          row.append('<td>' + (item.totalWatt !== null && item.totalWatt !== undefined ? Number(item.totalWatt).toFixed(2) : '-') + '</td>');
+          row.append('<td>' + (item.totalPredWatt !== null && item.totalPredWatt !== undefined ? Number(item.totalPredWatt).toFixed(2) : '-') + '</td>');
+          
+          tableBody.append(row);
+        });
+
+        // DataTable 초기화 (20개씩 페이징)
+        $('#data_table').DataTable({
+          pageLength: 20,
+          lengthMenu: [[10, 20, 50, 100, -1], [10, 20, 50, 100, "전체"]],
+          order: [[0, 'asc']], // 시간순 정렬
+          searching: false, // 검색 기능 비활성화
+          dom: 'Brtip', // 버튼 추가를 위한 dom 설정 (f 제거로 검색 필터 숨김)
+          buttons: [
+            {
+              extend: 'csv',
+              text: '엑셀 다운로드',
+              className: 'btn btn_sm btn_info',
+              filename: function() {
+                const now = new Date();
+                const dateStr = now.getFullYear() + 
+                  String(now.getMonth() + 1).padStart(2, '0') + 
+                  String(now.getDate()).padStart(2, '0') + '_' +
+                  String(now.getHours()).padStart(2, '0') + 
+                  String(now.getMinutes()).padStart(2, '0');
+                return '전력데이터_' + dateStr;
+              },
+              title: '전력 데이터',
+              bom: true,                   // ★ 이거 필수: UTF-8 BOM 붙이지 않으면 한글깨짐
+              exportOptions: {
+                columns: ':visible'
+              }
+            }
+          ],
+          language: {
+            lengthMenu: "_MENU_ 개씩 보기",
+            info: "총 _TOTAL_ 개 중 _START_ ~ _END_ 개 표시",
+            infoEmpty: "표시할 데이터가 없습니다.",
+            infoFiltered: "(전체 _MAX_ 개 중 검색됨)",
+            // search: "검색:",
+            zeroRecords: "검색 결과가 없습니다.",
+            paginate: {
+              first: "처음",
+              last: "마지막",
+              next: "다음",
+              previous: "이전"
+            },
+        
+          }
+        });
+      }
+    });
+
+  </script>
+</head>
+
+<body>
+  <div class="body_wrap">
+    <header>
+      <h1><a href=""><img src="/info/icon_menu.png" width="22" height="22" alt=""></a>인류세의 기후 테크 역량 강화를 위한 기후 환경
+        데이터 구축
+        처리 플랫폼 | 에너지 최적화된 안전공조시스템 데이터 조회 
+    </h1>
+      <span class="time" id="header_time">2025년 06월 05일 14:02</span>
+    </header>
+  </div>
+  <div class="wrapper">
+    <div class="wrap clear">
+      <div class="wrap-loading" style="display: none">
+        <div><img src="/loading.gif" /></div>
+      </div>
+      <div  class="analysis_graph">
+        <div class="cnt_wrap">
+          <div class="cnt_top">
+            <div class="container">
+              <h2 class="header_main_title">분석</h2>
+              <h3 class="header_sub_title">통계 분석</h3>
+
+            </div>
+          </div>
+          <!-- //header -->
+
+          <!-- contents_wrap -->
+
+          <div class="">
+            <!-- contents_header -->
+            <div class="contents_header sheet">
+              <div class="left">
+               
+                <div class="form_group">
+                  <label class="form_label">스테이션</label>
+                  <select class="form_select form_select_inline" data-custom-id="custom" data-custom-class="custom"
+                    id="deviceSelector"></select>
+                </div>
+              </div>
+              <div class="right">
+                <div class="form_group">
+                  <label class="form_label" style="width:100%">날짜/시간</label>
+                  <input type="datetime-local" id="searchDateTime" class="form_control"
+                    name="searchDateTime" step="60" />
+                  <a href="#" class="btn btn_sm btn_form btn_info" id="graphSearch">조회</a>
+                </div>
+              </div>
+            </div>
+            <!-- //contents_header -->
+            <div class="sheet">
+              <div class="chk_wrap" id="element_area">
+                <ul>
+                  <li>
+                    <input type="checkbox" id="chk_ventWatt" checked/>
+                    <label for="chk_ventWatt">환기실측유효전력</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="chk_ventPredWatt" checked/>
+                    <label for="chk_ventPredWatt">환기예측유효전력</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="chk_conWatt" checked/>
+                    <label for="chk_conWatt">냉난방실측유효전력</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="chk_conPredWatt" checked/>
+                    <label for="chk_conPredWatt">냉난방예측유효전력</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="chk_totalWatt" checked/>
+                    <label for="chk_totalWatt">전체실측유효전력</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" id="chk_totalPredWatt" checked/>
+                    <label for="chk_totalPredWatt">전체예측유효전력</label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="sheet">
+              <div class="table_top">
+                <p class="text_right">
+                  <a href="javascript:void(0);" class="btn btn_sm btn_info" id="graphDownloadBtn">그래프 다운로드</a>
+                </p>
+              </div>
+              <div class="graph_box" id="graphChart">
+                <div class="loader-box">
+                  <div class="loader2"></div>
+                  데이터 로딩중입니다.
+                </div>
+              </div>
+            </div>
+            <div class="sheet flex_fill">
+              <!-- <div class="table_top">
+                 
+                                    <p class="text_right">
+                                        <a href="#1" class="btn btn_sm btn_info" onclick="fn_fileDownload();" id="fileDownloadBtn">파일 다운로드</a>
+                                    </p>
+                                </div> -->
+              <div class="table_wrap table_data">
+                <div class="table_data_head">
+                  <div id="data_not" style="display: none; text-align: center">
+                    데이터가 없습니다.
+                  </div>
+                  <table id="data_table">
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="pagination" id="pagination"></div>
+            </div>
+          </div>
+          <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+          <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+          <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+          <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
